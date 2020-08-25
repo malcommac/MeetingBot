@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,16 @@
 		641FD8F724F44BFB0086C27E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 641FD8F624F44BFB0086C27E /* Assets.xcassets */; };
 		641FD8FA24F44BFC0086C27E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 641FD8F824F44BFC0086C27E /* Main.storyboard */; };
 		641FD90824F44F6A0086C27E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 641FD90724F44F6A0086C27E /* Localizable.strings */; };
+		641FD90E24F454030086C27E /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641FD90D24F454030086C27E /* CalendarManager.swift */; };
+		641FD91724F4F8710086C27E /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641FD91624F4F8710086C27E /* CalendarController.swift */; };
+		641FD91B24F4FAE70086C27E /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 641FD91A24F4FAE70086C27E /* Preferences */; };
+		641FD91D24F4FC030086C27E /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641FD91C24F4FC030086C27E /* Preferences.swift */; };
+		641FD92424F4FC9E0086C27E /* CalendarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641FD92324F4FC9E0086C27E /* CalendarController.xib */; };
+		641FD92624F4FCC90086C27E /* GeneralController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641FD92524F4FCC90086C27E /* GeneralController.xib */; };
+		641FD92924F4FCDD0086C27E /* GeneralController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641FD92824F4FCDD0086C27E /* GeneralController.swift */; };
+		645EB8DD24F513C8005B2B76 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 645EB8DC24F513C8005B2B76 /* Defaults */; };
+		645EB8DF24F5160A005B2B76 /* CalendarController+Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645EB8DE24F5160A005B2B76 /* CalendarController+Cells.swift */; };
+		645EB8E124F518E5005B2B76 /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645EB8E024F518E5005B2B76 /* PreferencesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +33,14 @@
 		641FD8FB24F44BFC0086C27E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		641FD8FC24F44BFC0086C27E /* NextCall.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NextCall.entitlements; sourceTree = "<group>"; };
 		641FD90724F44F6A0086C27E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		641FD90D24F454030086C27E /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
+		641FD91624F4F8710086C27E /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
+		641FD91C24F4FC030086C27E /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		641FD92324F4FC9E0086C27E /* CalendarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarController.xib; sourceTree = "<group>"; };
+		641FD92524F4FCC90086C27E /* GeneralController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralController.xib; sourceTree = "<group>"; };
+		641FD92824F4FCDD0086C27E /* GeneralController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralController.swift; sourceTree = "<group>"; };
+		645EB8DE24F5160A005B2B76 /* CalendarController+Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarController+Cells.swift"; sourceTree = "<group>"; };
+		645EB8E024F518E5005B2B76 /* PreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +48,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				645EB8DD24F513C8005B2B76 /* Defaults in Frameworks */,
+				641FD91B24F4FAE70086C27E /* Preferences in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +75,7 @@
 		641FD8F124F44BFA0086C27E /* NextCall */ = {
 			isa = PBXGroup;
 			children = (
+				641FD90C24F453F30086C27E /* Core */,
 				641FD8F224F44BFA0086C27E /* AppDelegate.swift */,
 				641FD8F424F44BFA0086C27E /* ViewController.swift */,
 				641FD8F624F44BFB0086C27E /* Assets.xcassets */,
@@ -62,8 +83,47 @@
 				641FD8FB24F44BFC0086C27E /* Info.plist */,
 				641FD8FC24F44BFC0086C27E /* NextCall.entitlements */,
 				641FD90724F44F6A0086C27E /* Localizable.strings */,
+				641FD91824F4F9580086C27E /* Preferences */,
 			);
 			path = NextCall;
+			sourceTree = "<group>";
+		};
+		641FD90C24F453F30086C27E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				641FD90D24F454030086C27E /* CalendarManager.swift */,
+				645EB8E024F518E5005B2B76 /* PreferencesManager.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		641FD91824F4F9580086C27E /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				641FD91C24F4FC030086C27E /* Preferences.swift */,
+				641FD92724F4FCD50086C27E /* General */,
+				641FD91E24F4FC160086C27E /* Calendar */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		641FD91E24F4FC160086C27E /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				641FD92324F4FC9E0086C27E /* CalendarController.xib */,
+				641FD91624F4F8710086C27E /* CalendarController.swift */,
+				645EB8DE24F5160A005B2B76 /* CalendarController+Cells.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		641FD92724F4FCD50086C27E /* General */ = {
+			isa = PBXGroup;
+			children = (
+				641FD92524F4FCC90086C27E /* GeneralController.xib */,
+				641FD92824F4FCDD0086C27E /* GeneralController.swift */,
+			);
+			path = General;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,6 +142,10 @@
 			dependencies = (
 			);
 			name = NextCall;
+			packageProductDependencies = (
+				641FD91A24F4FAE70086C27E /* Preferences */,
+				645EB8DC24F513C8005B2B76 /* Defaults */,
+			);
 			productName = NextCall;
 			productReference = 641FD8EF24F44BFA0086C27E /* NextCall.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +174,10 @@
 				Base,
 			);
 			mainGroup = 641FD8E624F44BFA0086C27E;
+			packageReferences = (
+				641FD91924F4FAE70086C27E /* XCRemoteSwiftPackageReference "Preferences" */,
+				645EB8DB24F513C8005B2B76 /* XCRemoteSwiftPackageReference "Defaults" */,
+			);
 			productRefGroup = 641FD8F024F44BFA0086C27E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -124,8 +192,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				641FD92424F4FC9E0086C27E /* CalendarController.xib in Resources */,
 				641FD8F724F44BFB0086C27E /* Assets.xcassets in Resources */,
 				641FD90824F44F6A0086C27E /* Localizable.strings in Resources */,
+				641FD92624F4FCC90086C27E /* GeneralController.xib in Resources */,
 				641FD8FA24F44BFC0086C27E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +207,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				645EB8E124F518E5005B2B76 /* PreferencesManager.swift in Sources */,
+				641FD92924F4FCDD0086C27E /* GeneralController.swift in Sources */,
+				641FD91724F4F8710086C27E /* CalendarController.swift in Sources */,
+				641FD90E24F454030086C27E /* CalendarManager.swift in Sources */,
+				641FD91D24F4FC030086C27E /* Preferences.swift in Sources */,
+				645EB8DF24F5160A005B2B76 /* CalendarController+Cells.swift in Sources */,
 				641FD8F524F44BFA0086C27E /* ViewController.swift in Sources */,
 				641FD8F324F44BFA0086C27E /* AppDelegate.swift in Sources */,
 			);
@@ -331,6 +407,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		641FD91924F4FAE70086C27E /* XCRemoteSwiftPackageReference "Preferences" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Preferences";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.1;
+			};
+		};
+		645EB8DB24F513C8005B2B76 /* XCRemoteSwiftPackageReference "Defaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Defaults.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		641FD91A24F4FAE70086C27E /* Preferences */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 641FD91924F4FAE70086C27E /* XCRemoteSwiftPackageReference "Preferences" */;
+			productName = Preferences;
+		};
+		645EB8DC24F513C8005B2B76 /* Defaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 645EB8DB24F513C8005B2B76 /* XCRemoteSwiftPackageReference "Defaults" */;
+			productName = Defaults;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 641FD8E724F44BFA0086C27E /* Project object */;
 }
