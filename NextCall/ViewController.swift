@@ -13,12 +13,6 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        CalendarManager.shared.requestAuthorizationIfNeeded()
-
-        let c = PreferenceManager.shared.favouriteCalendars()
-        
-        print(c)
-        // Do any additional setup after loading the view.
     }
 
     override var representedObject: Any? {

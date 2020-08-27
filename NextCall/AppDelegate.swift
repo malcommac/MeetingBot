@@ -8,33 +8,41 @@
 
 import Cocoa
 import Preferences
+import UserNotifications
+
+public var Now: Date {
+    return Date(timeIntervalSince1970: 1598250600)
+     return Date()
+}
+
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
-
-    lazy var preferencesWindowController = PreferencesWindowController(
-        preferencePanes: [
-            GeneralController(),
-            CalendarController(),
-        ]
-    )
-
+class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate {
+    
+    let manager = NextCallManager()
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
-        
-        preferencesWindowController.show()
-        
         CalendarManager.shared.requestAuthorizationIfNeeded()
-
-               let c = PreferenceManager.shared.favouriteCalendars()
-        let events = CalendarManager.shared.eventsForDate(Date().addingTimeInterval(-60 * 60 * 24), inCalendars: c)
-            print(c)
+        
+        UNUserNotificationCenter.current().delegate = self
     }
-
+    
+    internal func userNotificationCenter(_: UNUserNotificationCenter,
+                                         didReceive response: UNNotificationResponse,
+                                         withCompletionHandler completionHandler: @escaping () -> Void) {
+        switch response.actionIdentifier {
+        case "JOIN_ACTION":
+            manager.joinNextCall()
+        default:
+            break
+        }
+        
+        completionHandler()
+    }
+    
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-
-
+    
 }
 

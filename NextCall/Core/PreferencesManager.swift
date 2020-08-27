@@ -6,13 +6,17 @@
 //  Copyright © 2020 com.spillover.nextcall. All rights reserved.
 //
 
-import Foundation
 import Defaults
 import EventKit
+import AppKit
 
 extension Defaults.Keys {
     static let calendarIDs = Key<[String]>("calendarIDs", default: [])
     static let matchEvents = Key<EventsToMatch>("matchEvents", default: .today)
+    static let defaultBrowserURL = Key<URL?>("defaultBrowserURL")
+    static let preferChromeWithMeet = Key<Bool>("preferChromeWithMeet", default: true)
+    static let defaultCallService = Key<Int>("defaultCallService", default: CallServices.zoom.rawValue)
+    static let notifyEvent = Key<NotifyOnCall>("notifyEvent", default: .atTimeOfEvent)
 }
 
 public class PreferenceManager {
@@ -33,7 +37,123 @@ public class PreferenceManager {
     public func favouriteCalendars() -> [EKCalendar] {
         return CalendarManager.shared.calendarsWithIDs(Defaults[.calendarIDs])
     }
+    
+    public func installedBrowsers() -> [Browser] {
+        let allURLs = LSCopyApplicationURLsForURL(URL(string: "https:")! as CFURL, .all)?.takeRetainedValue() as? [URL]
+        return allURLs?.compactMap { Browser(URL: $0) } ?? []
+    }
+    
+    public lazy var systemBrowser: Browser? = {
+        guard let url = NSWorkspace.shared.urlForApplication(toOpen: URL(string: "http://www.apple.com")!) else {
+            return nil
+        }
+        
+        return Browser(URL: url)
+    }()
    
+}
+
+public class Browser {
+    public var URL: URL
+    
+    public lazy var name: String = {
+        guard let displayName = Bundle(url: URL)?.infoDictionary?["CFBundleDisplayName"] as? String else {
+            return (URL.lastPathComponent as NSString).deletingPathExtension
+        }
+
+        return "\(displayName) \(isSystemDefault ? "(Default)" : "")".trimmingCharacters(in: .whitespacesAndNewlines)
+    }()
+    
+    public var isSystemDefault: Bool {
+        return URL == PreferenceManager.shared.systemBrowser?.URL
+    }
+    
+    public lazy var icon: NSImage? = {
+        return NSWorkspace.shared.icon(forFile: URL.path)
+    }()
+    
+    public init?(URL: URL) {
+        guard FileManager.default.fileExists(atPath: URL.path) else {
+            return nil
+        }
+        
+        self.URL = URL
+    }
+    
+}
+
+public enum NotifyOnCall: Int, Codable, CaseIterable {
+    case never
+    case asApproaching
+    case atTimeOfEvent
+    
+    public var name: String {
+        switch self {
+        case .never: return "Never"
+        case .asApproaching: return "5 minutes before"
+        case .atTimeOfEvent: return "At the time of the event"
+        }
+    }
+    
+    public var intervalToEventForNotification: TimeInterval? {
+        switch self {
+        case .never:
+            return nil
+        case .asApproaching:
+            return 5 * 60
+        case .atTimeOfEvent:
+            return 5
+        }
+    }
+}
+
+public enum CallServices: Int, Codable, CaseIterable {
+    case zoom
+    case meet
+    case teams
+    case hangouts
+    case webex
+    
+    public var name: String {
+        switch self {
+        case .zoom: return "Zoom"
+        case .meet: return "Google Meet"
+        case .teams: return "Microsoft Teams"
+        case .hangouts: return "Hangout"
+        case .webex: return "Webex"
+        }
+    }
+    
+    public var regularExpression: NSRegularExpression {
+        switch self {
+        case .meet:
+            return try! NSRegularExpression(pattern: #"https://meet.google.com/[a-z-]+"#)
+        case .hangouts:
+            return try! NSRegularExpression(pattern: #"https://hangouts.google.com.*"#)
+        case .zoom:
+            return try! NSRegularExpression(pattern: #"https://([a-z0-9.]+)?zoom.us/j/[a-zA-Z0-9?&=]+"#)
+        case .teams:
+            return try! NSRegularExpression(pattern: #"https://teams.microsoft.com/l/meetup-join/[a-zA-Z0-9_%\/=\-\+\.?]+"#)
+        case .webex:
+            return try! NSRegularExpression(pattern: #"https://([a-z0-9.]+)?webex.com.*"#)
+        }
+    }
+    
+    public var newCallURL: URL? {
+        switch self {
+        case .zoom:
+            return URL(string: "https://zoom.us/start?confno=123456789&zc=0")!
+        case .meet:
+            return URL(string: "https://meet.google.com/new")!
+        case .teams:
+            return URL(string: "https://teams.microsoft.com/l/meeting/new?subject=")!
+        case .hangouts:
+            return URL(string: "https://hangouts.google.com/call")!
+        case .webex:
+            return nil
+        }
+    }
+    
 }
 
 // MARK: - EventsToMatch
