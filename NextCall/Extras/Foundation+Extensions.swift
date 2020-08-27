@@ -116,6 +116,10 @@ extension String {
         return cleanNotes.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
+    func trunc(length: Int, trailing: String = "…") -> String {
+           return (self.count > length) ? self.prefix(length) + trailing : self
+       }
+    
 }
 
 extension URL {

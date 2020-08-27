@@ -11,8 +11,8 @@ import Preferences
 import UserNotifications
 
 public var Now: Date {
-    return Date(timeIntervalSince1970: 1598250600)
-     return Date()
+   // return Date(timeIntervalSince1970: 1598250600)
+    return Date()
 }
 
 

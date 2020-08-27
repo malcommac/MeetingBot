@@ -11,6 +11,7 @@
                 <outlet property="callServicesList" destination="zkS-Ap-xks" id="tLO-wY-NLO"/>
                 <outlet property="createCallShorcutPlaceholder" destination="qvA-Cr-RaX" id="UWp-eP-RT3"/>
                 <outlet property="joinCallShorcutPlaceholder" destination="FiM-mW-rLe" id="MGa-c7-ziG"/>
+                <outlet property="menuBarStyle" destination="gjK-jT-mG7" id="ltJ-Xn-pzt"/>
                 <outlet property="notifyEvent" destination="2Ur-Pc-DgZ" id="oHN-0O-o0z"/>
                 <outlet property="preferChromeWithMeetService" destination="O8W-p8-cxY" id="MiN-Zu-Cid"/>
                 <outlet property="view" destination="c22-O7-iKe" id="buC-Sz-vlD"/>
@@ -175,7 +176,7 @@
                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="kQS-mZ-CZg">
                     <rect key="frame" x="188" y="47" width="204" height="28"/>
                     <textFieldCell key="cell" selectable="YES" title="A system notification will be sent when a new call is approaching." id="p5x-R3-BCn">
-                        <font key="font" metaFont="menu" size="11"/>
+                        <font key="font" metaFont="label" size="11"/>
                         <color key="textColor" name="systemGrayColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -197,7 +198,7 @@
                         </menu>
                     </popUpButtonCell>
                     <connections>
-                        <action selector="didChangeNotificationMode:" target="-2" id="dcl-xX-eT2"/>
+                        <action selector="didChangeMenuBarStyle:" target="-2" id="O4v-Mb-CWM"/>
                     </connections>
                 </popUpButton>
             </subviews>

@@ -42,7 +42,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ajy-k1-uOB" customClass="TextField" customModule="NextCall" customModuleProvider="target">
-                    <rect key="frame" x="20" y="6" width="191" height="14"/>
+                    <rect key="frame" x="20" y="9" width="191" height="14"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="Location of the event" id="HeO-5r-N39">
                         <font key="font" metaFont="menu" size="11"/>
                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -53,7 +53,7 @@
             <constraints>
                 <constraint firstItem="xPN-45-eTN" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="22" id="5MN-EV-tai"/>
                 <constraint firstAttribute="trailing" secondItem="jGc-uH-t2U" secondAttribute="trailing" constant="10" id="FJi-0D-6Pm"/>
-                <constraint firstItem="ajy-k1-uOB" firstAttribute="top" secondItem="xPN-45-eTN" secondAttribute="bottom" constant="5" id="NJs-fj-guF"/>
+                <constraint firstItem="ajy-k1-uOB" firstAttribute="top" secondItem="xPN-45-eTN" secondAttribute="bottom" constant="2" id="NJs-fj-guF"/>
                 <constraint firstItem="jGc-uH-t2U" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="22" id="NWP-IA-3Oa"/>
                 <constraint firstAttribute="trailing" secondItem="xPN-45-eTN" secondAttribute="trailing" constant="10" id="XfS-bf-aEV"/>
                 <constraint firstItem="ajy-k1-uOB" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="22" id="g7P-fa-TMh"/>

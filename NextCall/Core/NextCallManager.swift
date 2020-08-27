@@ -36,65 +36,68 @@ public class NextCallManager {
         self.statusItem.menu = statusBarMenu
         
         
-        updateStatusBar()
-        
-        schedulePeriodicUpdates()
+        updateMenuBar()
+        startMenuBarAutoUpdater()
     }
     
-    private func updateStatusBar() {
-        guard let nextEvent = nextEvent else {
-            setIcon(alert: false)
-            return
-        }
-        setIcon(alert: false)
-
-    }
-    
-    private func setIcon(alert: Bool) {
-        if let button = statusItem.button {
-            let image = NSImageView(image: NSImage(named: "bell")!)
-            image.frame = NSRect(x: 4, y: 3, width: 15, height: 15)
-            image.image?.isTemplate = true
-            button.addSubview(image)
-        }
-    }
-    
-    private func schedulePeriodicUpdates() {
+    private func startMenuBarAutoUpdater() {
         updater.repeats = true
-        updater.interval = 120
+        updater.interval = 30
         updater.qualityOfService = QualityOfService.userInteractive
         updater.schedule { (completion: @escaping NSBackgroundActivityScheduler.CompletionHandler) in
-            self.update()
-            completion(NSBackgroundActivityScheduler.Result.finished)
-        }
-        
-        update()
-    }
-    
-    private func update() {
-        DispatchQueue.main.async {
-            let data = self.updateMenuData()
-            if let button = self.statusItem.button {
-                button.title = "\(data.title)"
+            DispatchQueue.main.async {
+                self.updateMenuBar()
+                completion(NSBackgroundActivityScheduler.Result.finished)
             }
         }
     }
     
-    private func updateMenuData() -> StatusMenu {
+    private func updateMenuBar() {
         let calendars = PreferenceManager.shared.favouriteCalendars()
         guard calendars.isEmpty == false else {
-            return StatusMenu(title: "No Calendars")
+            return
         }
         
         let cal = CalendarManager.shared
         self.nextEvent = cal.nextEventInCalendars(calendars, fromDate: Now, byMatching: Defaults[.matchEvents])
         
-        
+        updateMenuBarTitle()
         statusItem.menu?.removeAllItems()
         addEventsGroupsInMenu(evaluateEventsGroups())
         addOtherMenuItems()
-
-        return StatusMenu(title:"   ")
+    }
+    
+    private func updateMenuBarTitle() {
+        switch Defaults[.menuBarStyle] {
+        case .icon:
+            setMenuBarIcon(forAlert: nextEvent != nil)
+        case .fullTitle:
+            setMenuBarTitle(asAbbreviated: false)
+        case .shortTitle:
+            setMenuBarTitle(asAbbreviated: true)
+        }
+    }
+    
+    private func setMenuBarTitle(asAbbreviated: Bool) {
+        guard let nextEvent = self.nextEvent, nextEvent.eventInterval <= EventInterval.imminent else {
+            setMenuBarIcon(forAlert: false)
+            return
+        }
+        
+        if let button = statusItem.button {
+            setMenuBarIcon(forAlert: true)
+            button.title = "      " + nextEvent.shortDescription(asAbbreviated: asAbbreviated)
+        }
+    }
+    
+    private func setMenuBarIcon(forAlert alert: Bool) {
+        if let button = statusItem.button {
+            let image = NSImageView(image: NSImage(named: (alert ? "statusbar_alarm" : "statusbar_normal"))!)
+            image.frame = NSRect(x: 2, y: 0, width: 20, height: 20)
+            image.image?.isTemplate = true
+            button.addSubview(image)
+            button.title = "   "
+        }
     }
     
     private func evaluateEventsGroups() -> [EventsGroup] {
@@ -195,7 +198,7 @@ public class NextCallManager {
     }
     
     @objc func exitProgram(_ sender: Any?) {
-        exit(0)
+        NSApplication.shared.terminate(self)
     }
     
     @objc func joinNextCall() {
@@ -268,12 +271,6 @@ public class NextCallManager {
         
         return true
     }
-    
-}
-
-public struct StatusMenu {
-    
-    public let title: String
     
 }
 

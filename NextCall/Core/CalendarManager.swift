@@ -179,8 +179,10 @@ extension EKEvent {
         switch eventInterval {
         case .inProgress(let remaining):
             return "\(remaining.format(using: [.minute])) left"
-        case .now, .imminent:
+        case .now:
             return "Now"
+        case .imminent:
+            return "In Minutes"
         case .soon:
             return "In \(remainingInterval.format(using: [.minute]))"
         case .long:
@@ -209,8 +211,9 @@ extension EKEvent {
         return notes?.cleanedNotes() ?? "No Notes Set"
     }
     
-    var shortDescription: String {
-        return "\(title ?? "") - \(formattedTime(fromDate: Now))"
+    func shortDescription(asAbbreviated: Bool) ->  String {
+        let text = (asAbbreviated ? title.trunc(length: 20) : title)
+        return "\(text ?? "") - \(formattedTime(fromDate: Now))"
     }
     
     public func meetingLinks() -> [CallServices: URL] {
@@ -235,10 +238,25 @@ extension EKEvent {
     
 }
 
-public enum EventInterval {
+public enum EventInterval: Comparable {
     case inProgress(TimeInterval)
     case now
     case imminent
     case soon
     case long
+    
+    private var index: Int {
+        switch self {
+        case .inProgress(_): return 0
+        case .now: return 1
+        case .imminent: return 2
+        case .soon: return 3
+        case .long: return 4
+        }
+    }
+    
+    public static func < (lhs: EventInterval, rhs: EventInterval) -> Bool {
+        return lhs.index < rhs.index
+    }
+    
 }

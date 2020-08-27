@@ -17,6 +17,21 @@ extension Defaults.Keys {
     static let preferChromeWithMeet = Key<Bool>("preferChromeWithMeet", default: true)
     static let defaultCallService = Key<Int>("defaultCallService", default: CallServices.zoom.rawValue)
     static let notifyEvent = Key<NotifyOnCall>("notifyEvent", default: .atTimeOfEvent)
+    static let menuBarStyle = Key<MenuBarStyle>("menuBarStyle", default: .icon)
+}
+
+public enum MenuBarStyle: Int, Codable, CaseIterable {
+    case icon
+    case fullTitle
+    case shortTitle
+    
+    public var title: String {
+        switch self {
+        case .icon: return "Icon"
+        case .fullTitle: return "Next Event Title"
+        case .shortTitle: return "Next Event Abbreviated Title"
+        }
+    }
 }
 
 public class PreferenceManager {

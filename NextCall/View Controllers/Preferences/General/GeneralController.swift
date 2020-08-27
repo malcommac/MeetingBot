@@ -29,6 +29,7 @@ public class GeneralController: NSViewController, PreferencePane {
     @IBOutlet public var preferChromeWithMeetService: NSButton?
     @IBOutlet public var callServicesList: NSPopUpButton?
     @IBOutlet public var notifyEvent: NSPopUpButton?
+    @IBOutlet public var menuBarStyle: NSPopUpButton?
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +59,10 @@ public class GeneralController: NSViewController, PreferencePane {
         Defaults[.notifyEvent] = NotifyOnCall(rawValue: notifyEvent!.selectedItem!.tag)!
     }
     
+    @IBAction public func didChangeMenuBarStyle(_ sender: Any?) {
+        Defaults[.menuBarStyle] = MenuBarStyle(rawValue: menuBarStyle!.selectedItem!.tag)!
+    }
+    
     private func reloadData() {
         notifyEvent?.removeAllItems()
         for notifyMode in NotifyOnCall.allCases {
@@ -66,6 +71,13 @@ public class GeneralController: NSViewController, PreferencePane {
         }
         
         notifyEvent?.selectItem(withTag: Defaults[.notifyEvent].rawValue)
+        
+        menuBarStyle?.removeAllItems()
+        MenuBarStyle.allCases.forEach { style in
+            menuBarStyle?.addItem(withTitle: style.title)
+            menuBarStyle?.lastItem?.tag = style.rawValue
+        }
+        menuBarStyle?.selectItem(withTag: Defaults[.menuBarStyle].rawValue)
     }
     
     private func reloadCallServices() {
