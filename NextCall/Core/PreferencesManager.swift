@@ -10,6 +10,8 @@ import Defaults
 import EventKit
 import AppKit
 
+// MARK: - Preferences Keys
+
 extension Defaults.Keys {
     static let calendarIDs = Key<[String]>("calendarIDs", default: [])
     static let matchEvents = Key<EventsToMatch>("matchEvents", default: .today)
@@ -19,6 +21,56 @@ extension Defaults.Keys {
     static let notifyEvent = Key<NotifyOnCall>("notifyEvent", default: .atTimeOfEvent)
     static let menuBarStyle = Key<MenuBarStyle>("menuBarStyle", default: .icon)
 }
+
+// MARK: - PreferenceManager
+
+public class PreferenceManager {
+    
+    /// Shared instance.
+    public static let shared = PreferenceManager()
+    
+    /// Save calendars to monitor.
+    /// - Parameters:
+    ///   - calendar: calendar.
+    ///   - asFavourite: `true` to enable watching calendar, `false` to remove it from monitored calendars.
+    public func setCalendar(_ calendar: EKCalendar, asFavourite: Bool) {
+        var selectedCalendarIDs = Set(Defaults[.calendarIDs])
+        if asFavourite {
+            selectedCalendarIDs.insert(calendar.calendarIdentifier)
+        } else {
+            selectedCalendarIDs.remove(calendar.calendarIdentifier)
+        }
+        
+        Defaults[.calendarIDs] = Array(selectedCalendarIDs)
+    }
+    
+    /// Return favourite calendars.
+    /// - Returns: [EKCalendar]
+    public func favouriteCalendars() -> [EKCalendar] {
+        let calendarIDs = Defaults[.calendarIDs]
+        print("Calendars: \(calendarIDs)")
+        return CalendarManager.shared.calendarsWithIDs(calendarIDs)
+    }
+    
+    /// Return the list of installed browsers.
+    /// - Returns: [Browser]
+    public func installedBrowsers() -> [Browser] {
+        let allURLs = LSCopyApplicationURLsForURL(URL(string: "https:")! as CFURL, .all)?.takeRetainedValue() as? [URL]
+        return allURLs?.compactMap { Browser(URL: $0) } ?? []
+    }
+    
+    /// Return system set browser.
+    public lazy var systemBrowser: Browser? = {
+        guard let url = NSWorkspace.shared.urlForApplication(toOpen: URL(string: "http://www.apple.com")!) else {
+            return nil
+        }
+        
+        return Browser(URL: url)
+    }()
+   
+}
+
+// MARK: - MenuBarStyle (Preference Structure)
 
 public enum MenuBarStyle: Int, Codable, CaseIterable {
     case icon
@@ -34,39 +86,7 @@ public enum MenuBarStyle: Int, Codable, CaseIterable {
     }
 }
 
-public class PreferenceManager {
-    
-    public static let shared = PreferenceManager()
-    
-    public func setCalendar(_ calendar: EKCalendar, asFavourite: Bool) {
-        var selectedCalendarIDs = Set(Defaults[.calendarIDs])
-        if asFavourite {
-            selectedCalendarIDs.insert(calendar.calendarIdentifier)
-        } else {
-            selectedCalendarIDs.remove(calendar.calendarIdentifier)
-        }
-        
-        Defaults[.calendarIDs] = Array(selectedCalendarIDs)
-    }
-    
-    public func favouriteCalendars() -> [EKCalendar] {
-        return CalendarManager.shared.calendarsWithIDs(Defaults[.calendarIDs])
-    }
-    
-    public func installedBrowsers() -> [Browser] {
-        let allURLs = LSCopyApplicationURLsForURL(URL(string: "https:")! as CFURL, .all)?.takeRetainedValue() as? [URL]
-        return allURLs?.compactMap { Browser(URL: $0) } ?? []
-    }
-    
-    public lazy var systemBrowser: Browser? = {
-        guard let url = NSWorkspace.shared.urlForApplication(toOpen: URL(string: "http://www.apple.com")!) else {
-            return nil
-        }
-        
-        return Browser(URL: url)
-    }()
-   
-}
+// MARK: - Browser (Preference Structure)
 
 public class Browser {
     public var URL: URL
@@ -97,6 +117,8 @@ public class Browser {
     
 }
 
+// MARK: - NotifyOnCall (Preference Structure)
+
 public enum NotifyOnCall: Int, Codable, CaseIterable {
     case never
     case asApproaching
@@ -122,7 +144,13 @@ public enum NotifyOnCall: Int, Codable, CaseIterable {
     }
 }
 
-public enum CallServices: Int, Codable, CaseIterable {
+// MARK: - CallServices (Preference Structure)
+
+public enum CallServices: Int, Codable, CaseIterable, Comparable {
+    public static func < (lhs: CallServices, rhs: CallServices) -> Bool {
+        return lhs.rawValue < rhs.rawValue
+    }
+    
     case zoom
     case meet
     case teams
@@ -171,7 +199,7 @@ public enum CallServices: Int, Codable, CaseIterable {
     
 }
 
-// MARK: - EventsToMatch
+// MARK: - EventsToMatch (Preference Structure)
 
 public enum EventsToMatch: Codable {
     case today

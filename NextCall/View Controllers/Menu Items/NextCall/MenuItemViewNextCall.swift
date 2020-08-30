@@ -1,5 +1,5 @@
 //
-//  MenuSubtitleView.swift
+//  MenuItemViewNextCall.swift
 //  NextCall
 //
 //  Created by daniele on 26/08/2020.
@@ -9,7 +9,7 @@
 import Cocoa
 import EventKit
 
-public class MenuSubtitleView: NSView, LoadableNib {
+public class MenuItemViewNextCall: NSView, LoadableNib {
     @IBOutlet var contentView: NSView!
     @IBOutlet var titleLabel: NSTextField!
     @IBOutlet var subtitleLabel: NSTextField!

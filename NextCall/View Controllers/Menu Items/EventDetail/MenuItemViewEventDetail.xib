@@ -5,7 +5,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="EventMenuDetailView" customModule="NextCall" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="MenuItemViewEventDetail" customModule="NextCall" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="c22-O7-iKe" id="LS1-61-gHk"/>
                 <outlet property="descriptionHeightConstraint" destination="ej2-GZ-55b" id="AuG-LM-iu4"/>

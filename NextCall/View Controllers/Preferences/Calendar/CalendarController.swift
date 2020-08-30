@@ -13,35 +13,46 @@ import Defaults
 
 public class CalendarController: NSViewController, PreferencePane {
     
+    // MARK: - IBOutlets
+
     @IBOutlet public var calendarsTable: NSTableView?
     @IBOutlet public var eventsMatch: NSPopUpButton?
     @IBOutlet public var eventsMatchDays: NSTextField?
 
+    // MARK: - PreferencePane
+
     public let preferencePaneIdentifier = Preferences.PaneIdentifier.calendars
     public let preferencePaneTitle = "Calendars"
     public let toolbarItemIcon = NSImage(named: NSImage.preferencesGeneralName)!
-
     public override var nibName: NSNib.Name? { "CalendarController" }
     
+    // MARK: - Private Properties
+
     private var calendarItems = [Any]()
     private let CalendarAccountCellID = NSUserInterfaceItemIdentifier(rawValue: "CalendarAccountCell")
     private let CalendarCellID = NSUserInterfaceItemIdentifier(rawValue: "CalendarCell")
     
+    // MARK: - Initialization
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
-        reloadData()
+        reloadCalendarTable()
         reloadMatchEvents()
     }
     
+    // MARK: - IBAction
+    
     @IBAction public func didChangeMatchEvents(_ sender: Any?) {
-        saveMatchedDays()
+        saveMatchDaysPreference()
     }
     
     @IBAction public func didChangeNextDaysValue(_ sender: Any?) {
-        saveMatchedDays()
+        saveMatchDaysPreference()
     }
     
-    private func saveMatchedDays() {
+    // MARK: - Private Funtions
+    
+    private func saveMatchDaysPreference() {
         switch eventsMatch?.selectedTag() {
         case EventsToMatch.today.kindValue:
             Defaults[.matchEvents] = .today
@@ -58,6 +69,7 @@ public class CalendarController: NSViewController, PreferencePane {
         }
         
         reloadMatchEvents()
+        StatusBarManager.shared.update()
     }
     
     private func reloadMatchEvents() {
@@ -71,7 +83,7 @@ public class CalendarController: NSViewController, PreferencePane {
         }
     }
     
-    private func reloadData() {
+    private func reloadCalendarTable() {
         calendarItems.removeAll()
         let allCalendars = CalendarManager.shared.allCalendars()
         
@@ -83,7 +95,14 @@ public class CalendarController: NSViewController, PreferencePane {
         calendarsTable?.reloadData()
     }
         
+    private func didChangeSelectedCalendar(_ calendar: EKCalendar, enabled: Bool) {
+        PreferenceManager.shared.setCalendar(calendar, asFavourite: enabled)
+        StatusBarManager.shared.update()
+    }
+    
 }
+
+// MARK: - CalendarController (NSTableViewDataSource, NSTableViewDelegate)
 
 extension CalendarController: NSTableViewDataSource, NSTableViewDelegate {
     
@@ -94,21 +113,22 @@ extension CalendarController: NSTableViewDataSource, NSTableViewDelegate {
     public func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let item = calendarItems[row]
         
+        // Account Name
         if let accountName = item as? String {
             let cell = tableView.makeView(withIdentifier: CalendarAccountCellID, owner: self) as? CalendarAccountCell
             cell?.account = accountName
             return cell
         }
         
+        // Calendar checkbox
         if let calendar = item as? EKCalendar {
             let cell = tableView.makeView(withIdentifier: CalendarCellID, owner: self) as? CalendarCell
             cell?.calendar = calendar
-            cell?.onChangeSelection = { (calendar, isEnabled) in
-                PreferenceManager.shared.setCalendar(calendar, asFavourite: isEnabled)
+            cell?.onChangeSelection = { [weak self] (calendar, isEnabled) in
+                self?.didChangeSelectedCalendar(calendar, enabled: isEnabled)
             }
             return cell
         }
-        
          
         fatalError()
     }

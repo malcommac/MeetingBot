@@ -58,6 +58,8 @@ public class StatusBarManager {
     // MARK: - Public Functions
     
     public func update() {
+        statusBarMenu.removeAllItems()
+        
         // Get the favourite calendars to watch.
         let calendars = PreferenceManager.shared.favouriteCalendars()
         guard calendars.isEmpty == false else {
@@ -93,7 +95,7 @@ public class StatusBarManager {
     
     /// Setup the icon to show in menu bar based upon the next planned event from calendars.
     private func setupStatusBarIconAndTitle() {
-        let isNextEventImminent = (upcomingEvent == nil ? false : upcomingEvent!.eventInterval <= EventInterval.imminent)
+        let isNextEventImminent = (upcomingEvent == nil ? false : upcomingEvent!.startRemainingTime <= EventStartKind.imminent)
         
         guard let upcomingEvent = upcomingEvent, isNextEventImminent else {
             // next event is not imminent, no alert must be shown
@@ -104,7 +106,7 @@ public class StatusBarManager {
         // Otherwise we want to show the icon and optionally the title of the event as set.
         setStatusBarIcon(.alarm)
         if Defaults[.menuBarStyle] != .icon {
-            statusItem.button?.title = "      " + upcomingEvent.shortDescription(asAbbreviated: (Defaults[.menuBarStyle] == .shortTitle))
+            statusItem.button?.title = "      " + upcomingEvent.title(abbreviated: (Defaults[.menuBarStyle] == .shortTitle))
         }
     }
     
@@ -157,7 +159,7 @@ public class StatusBarManager {
                 eventInGroupMenuItem.submenu = createEventDetailMenu(event)
 
                 // The event in group is a custom view with the preview.
-                let eventMenuView = EventsMenuView(frame: CGRect(x: 0, y: 0, width: 380, height: 25))
+                let eventMenuView = MenuItemViewEventSummary(frame: CGRect(x: 0, y: 0, width: 380, height: 25))
                 eventMenuView.event = event
                 eventInGroupMenuItem.view = eventMenuView
             }
@@ -172,7 +174,7 @@ public class StatusBarManager {
 
         // Create next event view item
         let nextEventMenuItem = statusBarMenu.addItem(title: "Next_Event", action: nil, target: nil)
-        let nextEventView = MenuSubtitleView(frame: CGRect(x: 0, y: 0, width: 380, height: 60))
+        let nextEventView = MenuItemViewNextCall(frame: CGRect(x: 0, y: 0, width: 380, height: 60))
         nextEventView.event = upcomingEvent
         nextEventMenuItem.view = nextEventView
         
@@ -193,7 +195,7 @@ public class StatusBarManager {
         
         // Detail View
         let item = detailMenu.addItem(title: "Event_Detail", action: nil, target: nil)
-        let detailView = EventMenuDetailView(frame: CGRect(x: 0, y: 0, width: 380, height: 200))
+        let detailView = MenuItemViewEventDetail(frame: CGRect(x: 0, y: 0, width: 380, height: 200))
         detailView.setFrameSize(NSMakeSize(300, detailView.fittingSize.height))
         detailView.event = event
         item.view = detailView
@@ -211,14 +213,15 @@ public class StatusBarManager {
     ///   - event: event target.
     ///   - menu: destination menu.
     private func addJoinMenuItems(forEvent event: EKEvent, intoMenu menu: NSMenu) {
-        guard event.meetingLinks().isEmpty == false else {
+        let foundServices = event.meetingLinkServices()
+        guard foundServices.isEmpty == false else {
             return
         }
         
-        event.meetingLinks().forEach { (key, _) in
-            let joinMenuItem = menu.addItem(title: "MenuItem_JoinWithService".l10n([key.name]), action: #selector(joinEventCall), target: self)
+        foundServices.forEach { service in
+            let joinMenuItem = menu.addItem(title: "MenuItem_JoinWithService".l10n([service.name]), action: #selector(joinEventCall), target: self)
             joinMenuItem.representedObject = event
-            joinMenuItem.tag = key.rawValue
+            joinMenuItem.tag = service.rawValue
         }
     }
     

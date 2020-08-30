@@ -10,7 +10,7 @@ import Cocoa
 import EventKit
 import Defaults
 
-public class EventMenuDetailView: NSView, LoadableNib {
+public class MenuItemViewEventDetail: NSView, LoadableNib {
     @IBOutlet var contentView: NSView!
     @IBOutlet var eventTitle: NSTextField!
     @IBOutlet var eventLocation: NSTextField!

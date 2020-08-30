@@ -1,5 +1,5 @@
 //
-//  EventsMenuView.swift
+//  MenuItemViewEventSummary.swift
 //  NextCall
 //
 //  Created by daniele on 25/08/2020.
@@ -9,7 +9,7 @@
 import AppKit
 import EventKit
 
-class EventsMenuView: NSView, LoadableNib {
+class MenuItemViewEventSummary: NSView, LoadableNib {
     
     public var event: EKEvent? {
         didSet {

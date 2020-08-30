@@ -19,10 +19,14 @@ public var Now: Date {
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate {
     
-    let manager = NextCallManager()
-    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        CalendarManager.shared.requestAuthorizationIfNeeded()
+        CalendarManager.shared.requestAuthorization { error in
+            if let error = error {
+              return
+            }
+            
+            _ = StatusBarManager.shared
+        }
         
         UNUserNotificationCenter.current().delegate = self
     }
@@ -31,8 +35,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                                          didReceive response: UNNotificationResponse,
                                          withCompletionHandler completionHandler: @escaping () -> Void) {
         switch response.actionIdentifier {
-        case "JOIN_ACTION":
-            manager.joinNextCall()
+        case NotificationManager.MEETING_ACTION_JOIN:
+            StatusBarManager.shared.joinNextCall()
         default:
             break
         }

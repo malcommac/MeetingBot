@@ -12,12 +12,28 @@ import EventKit
 
 public class NotificationManager {
     
+    // MARK: - Private Properties
+
+    private static let MEETING_REMINDER_ID = "MEETING_REMINDER"
+    
+    // MARK: - Public Properties
+
+    public static let MEETING_ACTION_JOIN = "JOIN_MEETING"
+    
+    /// Shared instance.
     public static let shared = NotificationManager()
     
-    init() {
+    // MARK: - Initialization
+
+    private init() {
         registerNotificationCategories()
     }
     
+    
+    // MARK: - Public Functions
+    
+    /// Request authorization for push notifications.
+    /// - Parameter completion: completion block.
     public func requestNotificationAuthorization(_ completion: ((Bool) -> Void)? = nil) {
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
@@ -25,25 +41,12 @@ public class NotificationManager {
         }
         
     }
-
-    func registerNotificationCategories() {
-        let acceptAction = UNNotificationAction(identifier: "JOIN_ACTION",
-              title: "Join",
-              options: .foreground)
-
-        let eventCategory =
-              UNNotificationCategory(identifier: "EVENT",
-              actions: [acceptAction],
-              intentIdentifiers: [],
-              hiddenPreviewsBodyPlaceholder: "",
-              options: .customDismissAction)
-
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.setNotificationCategories([eventCategory])
-    }
     
-    public func showNotification(_ title: String, _ text: String){
-        NSLog("Send notification: \(title) - \(text)")
+    /// Show standard read-only notification message.
+    /// - Parameters:
+    ///   - title: title of the message.
+    ///   - text: text of the message.
+    public func showStandardNotificationMessage(_ title: String, _ text: String){
         let center = UNUserNotificationCenter.current()
         
         let content = UNMutableNotificationContent()
@@ -55,7 +58,11 @@ public class NotificationManager {
         center.add(request)
     }
     
-
+    
+    /// Schedule a meeting reminder notification.
+    /// - Parameters:
+    ///   - type: type of notification.
+    ///   - event: target event.
     func scheduleEventNotification(type: NotifyOnCall, forEvent event: EKEvent) {
         guard let interval = type.intervalToEventForNotification else {
             return
@@ -71,14 +78,33 @@ public class NotificationManager {
 
         let content = UNMutableNotificationContent()
         content.title = event.title
-        content.body = "Call is starting soon"
-        content.categoryIdentifier = "EVENT"
+        content.body = "Notification_CallIsStarting".l10n
+        content.categoryIdentifier = NotificationManager.MEETING_REMINDER_ID
         content.sound = UNNotificationSound.default
         
         timeInterval = timeInterval > 0.1 ? timeInterval : 0.1
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
         let request = UNNotificationRequest(identifier: "next_event", content: content, trigger: trigger)
         center.add(request)
+    }
+    
+    // MARK: - Private Functions
+    
+    /// Register categories of push notifications.
+    private func registerNotificationCategories() {
+        let joinButton = UNNotificationAction(identifier: NotificationManager.MEETING_ACTION_JOIN,
+                                                title: "Notification_Button_Join".l10n,
+                                                options: .foreground)
+        
+        let eventCategory =
+            UNNotificationCategory(identifier: NotificationManager.MEETING_REMINDER_ID,
+                                   actions: [joinButton],
+                                   intentIdentifiers: [],
+                                   hiddenPreviewsBodyPlaceholder: "",
+                                   options: .customDismissAction)
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.setNotificationCategories([eventCategory])
     }
 
 }
