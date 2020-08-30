@@ -11,25 +11,38 @@ import Preferences
 import UserNotifications
 
 public var Now: Date {
-    return Date(timeIntervalSince1970: 1598250600)
-   // return Date()
+    // return Date(timeIntervalSince1970: 1598250600)
+    return Date()
 }
-
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate {
     
+    // MARK: - App Delegate
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        UNUserNotificationCenter.current().delegate = self
+
+        // Authorize notifications
+        NotificationManager.shared.requestNotificationAuthorization()
+        
+        // Authorize calendars
         CalendarManager.shared.requestAuthorization { error in
             if let error = error {
-              return
+                NotificationManager.shared.showStandardNotificationMessage("Error_FailedAuthCalendar".l10n, error.localizedDescription)
+                return
             }
             
-            _ = StatusBarManager.shared
+            // Setup menu
+            StatusBarManager.shared.setup()
         }
-        
-        UNUserNotificationCenter.current().delegate = self
     }
+    
+    func applicationWillTerminate(_ aNotification: Notification) {
+        // Insert code here to tear down your application
+    }
+    
+    // MARK: - Notifications Delegate
     
     internal func userNotificationCenter(_: UNUserNotificationCenter,
                                          didReceive response: UNNotificationResponse,
@@ -42,10 +55,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
         
         completionHandler()
-    }
-    
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
     }
     
 }

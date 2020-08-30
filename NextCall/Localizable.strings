@@ -30,3 +30,5 @@
 
 "Notification_CallIsStarting" = "Meeting is starting soon!";
 "Notification_Button_Join" = "Join";
+
+"Error_FailedAuthCalendar" = "Failed to read calendar";

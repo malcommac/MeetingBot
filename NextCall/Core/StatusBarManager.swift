@@ -50,12 +50,15 @@ public class StatusBarManager {
     
     public init() {
         self.statusItem.menu = NSMenu(title: "Main_Menu")
-        
-        update()
-        configureStatusBarAutoUpdate()
     }
     
     // MARK: - Public Functions
+    
+    /// Call on startup.
+    public func setup() {
+        update()
+        configureStatusBarAutoUpdate()
+    }
     
     public func update() {
         statusBarMenu.removeAllItems()
