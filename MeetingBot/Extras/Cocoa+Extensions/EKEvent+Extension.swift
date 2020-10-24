@@ -58,6 +58,28 @@ extension EKEvent {
         return .long
     }
     
+    public func formattedRemainingTime() -> String {
+        guard Now >= startDate, Now < endDate else {
+            return ""
+        }
+        
+        if intervalToStart < 60, intervalToStart > 0 {
+            return "Now".l10n
+        }
+        
+        let isPast = intervalToStart < 0
+        
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .abbreviated // Use the appropriate positioning for the current locale
+        formatter.allowedUnits = [.minute ] // Units to display in the formatted string
+
+        if isPast {
+            return "Ago_Time".l10n([formatter.string(from: abs(intervalToStart)) ?? ""])
+        } else {
+            return "In_Time".l10n([formatter.string(from: intervalToStart) ?? ""])
+        }
+    }
+    
     public func formattedAttendees() -> String {
         guard hasAttendees else {
             return "Attendees_None".l10n

@@ -14,4 +14,5 @@ import EventKit
 extension Preferences.PaneIdentifier {
     static let calendars = Self("calendars")
     static let general = Self("general")
+    static let speedDial = Self("speedDial")
 }

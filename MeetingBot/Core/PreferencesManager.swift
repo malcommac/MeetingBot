@@ -13,6 +13,20 @@ import LaunchAtLogin
 
 // MARK: - Preferences Keys
 
+public struct SpeedDialItem: Codable {
+    var title: String
+    var link: String?
+    
+    public var url: URL? {
+        guard let urlString = link,
+              let url = URL(string: urlString) else {
+            return nil
+        }
+        
+        return url
+    }
+}
+
 public struct App {
     static let bundleIdentifier: String = "com.danielemargutti.meetingbot"
 }
@@ -25,6 +39,7 @@ extension Defaults.Keys {
     static let notifyEvent = Key<NotifyOnCall>("notifyEvent", default: .atTimeOfEvent)
     static let menuBarStyle = Key<MenuBarStyle>("menuBarStyle", default: .icon)
     static let wizardCompleted = Key<Bool>("wizardCompleted", default: false)
+    static let speedDialItems = Key<[SpeedDialItem]>("speedDialItems", default: [SpeedDialItem]())
 }
 
 // MARK: - PreferenceManager
@@ -72,6 +87,14 @@ public class PreferenceManager {
         
         return Browser(URL: url)
     }()
+    
+    public func speedDialItems() -> [SpeedDialItem] {
+        return Defaults[.speedDialItems]
+    }
+    
+    public func setSpeedDialItems(_ items: [SpeedDialItem]) {
+        Defaults[.speedDialItems] = items
+    }
    
 }
 
@@ -79,14 +102,20 @@ public class PreferenceManager {
 
 public enum MenuBarStyle: Int, Codable, CaseIterable {
     case icon
+    case iconAndCountdown
     case fullTitle
     case shortTitle
     
     public var title: String {
         switch self {
-        case .icon: return "Icon"
-        case .fullTitle: return "Next Event Title"
-        case .shortTitle: return "Next Event Abbreviated Title"
+        case .icon:
+            return "MenuBarStyle_Icon".l10n
+        case .iconAndCountdown:
+            return "MenuBarStyle_IconAndCountdown".l10n
+        case .fullTitle:
+            return "MenuBarStyle_NextTitle".l10n
+        case .shortTitle:
+            return "MenuBarStyle_NextTitleAbbreviated".l10n
         }
     }
 }

@@ -45,6 +45,7 @@ public class StatusBarManager: NSObject, NSMenuDelegate {
         preferencePanes: [
             GeneralController(),
             CalendarController(),
+            SpeedDialController()
         ]
     )
     
@@ -98,10 +99,11 @@ public class StatusBarManager: NSObject, NSMenuDelegate {
                 .foregroundColor: NSColor.secondaryLabelColor
             ]
             let sectionTitleMenuItem = NSMenuItem(title: "NEXT_EVENTS", action: nil, keyEquivalent: "")
-            sectionTitleMenuItem.attributedTitle = NSAttributedString(string: "NEXT EVENTS",attributes: attributes)
+            sectionTitleMenuItem.attributedTitle = NSAttributedString(string: "Menu_NextEvents".l10n, attributes: attributes)
             statusBarMenu.insertItem(sectionTitleMenuItem, at: 0)
         }
         
+        appendSpeedDialMenuItems()
         appendApplicationMenuItems() // Append standard application menu
     }
     
@@ -131,16 +133,25 @@ public class StatusBarManager: NSObject, NSMenuDelegate {
     private func setupStatusBarIconAndTitle() {
         let isNextEventImminent = (upcomingEvent == nil ? false : upcomingEvent!.startRemainingTime <= EventStartKind.imminent)
         
-        guard let upcomingEvent = upcomingEvent, isNextEventImminent else {
-            // next event is not imminent, no alert must be shown
+        if isNextEventImminent {
+            setStatusBarIcon(.alarm)
+        } else {
             setStatusBarIcon(.default)
-            return
         }
         
-        // Otherwise we want to show the icon and optionally the title of the event as set.
-        setStatusBarIcon(.alarm)
-        if Defaults[.menuBarStyle] != .icon {
-            statusItem.button?.title = "      " + upcomingEvent.title(abbreviated: (Defaults[.menuBarStyle] == .shortTitle))
+        switch Defaults[.menuBarStyle] {
+        case .icon:
+            break
+
+        case .iconAndCountdown:
+            if let upcomingEvent = upcomingEvent {
+                statusItem.button?.title = "      " + upcomingEvent.formattedRemainingTime()
+            }
+            
+        case .fullTitle, .shortTitle:
+            if let upcomingEvent = upcomingEvent {
+                statusItem.button?.title = "      " + upcomingEvent.title(abbreviated: (Defaults[.menuBarStyle] == .shortTitle))
+            }
         }
     }
     
@@ -154,6 +165,30 @@ public class StatusBarManager: NSObject, NSMenuDelegate {
         
         // Complete with application's standard menu items
         appendApplicationMenuItems()
+    }
+    
+    private func appendSpeedDialMenuItems() {
+        statusBarMenu.addItem(NSMenuItem.separator())
+
+        let items = PreferenceManager.shared.speedDialItems()
+        guard items.isEmpty == false else {
+            return
+        }
+        
+        // Title
+        let attributes: [NSAttributedString.Key : Any] = [
+            .font: NSFont.menuBarFont(ofSize: 11),
+            .foregroundColor: NSColor.secondaryLabelColor
+        ]
+        let sectionTitleMenuItem = NSMenuItem(title: "SPEED_DIAL", action: nil, keyEquivalent: "")
+        sectionTitleMenuItem.attributedTitle = NSAttributedString(string: "Menu_SpeedDial".l10n,attributes: attributes)
+        statusBarMenu.addItem(sectionTitleMenuItem)
+        
+        // Speed Items
+        for speedDialItem in items {
+            let speedDialMenuItem = statusBarMenu.addItem(title: speedDialItem.title, action: #selector(launchSpeedDialURL), target: self)
+            speedDialMenuItem.representedObject = speedDialItem
+        }
     }
     
     /// Append the rest of the application's menus.
@@ -266,6 +301,7 @@ public class StatusBarManager: NSObject, NSMenuDelegate {
                 let joinMenuItem = menu.addItem(title: "MenuItem_JoinWithService".l10n([serviceName]),
                                                 action: #selector(joinEventCall),
                                                 target: self)
+                joinMenuItem.image = NSImage(named: "statusbar_zoom")
                 joinMenuItem.representedObject = event
                 joinMenuItem.tag = service.rawValue
             }
@@ -343,6 +379,15 @@ public class StatusBarManager: NSObject, NSMenuDelegate {
     
     @objc func joinNextCall() {
         joinCallForEvent(upcomingEvent, withService: nil)
+    }
+    
+    @objc func launchSpeedDialURL(_ sender: NSMenuItem) {
+        guard let speedDialItem = sender.representedObject as? SpeedDialItem,
+              let url = speedDialItem.url else {
+            return
+        }
+        
+        NSWorkspace.openURL(url)
     }
     
     @objc func createNewMeeting(_ sender: NSMenuItem) {

@@ -60,8 +60,8 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="r90-R3-gZr">
-                        <rect key="frame" x="308" y="14" width="69" height="27"/>
-                        <buttonCell key="cell" type="push" title="Support" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xzM-C3-L5b">
+                        <rect key="frame" x="270" y="14" width="107" height="27"/>
+                        <buttonCell key="cell" type="push" title="Send Feedback" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xzM-C3-L5b">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
                         </buttonCell>
