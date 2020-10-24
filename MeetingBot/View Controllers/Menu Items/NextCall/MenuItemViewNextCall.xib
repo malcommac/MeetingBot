@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="MenuItemViewNextCall" customModule="MyNextMeeting" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="c22-O7-iKe" id="24n-Ql-Fsr"/>
+                <outlet property="upcomingEventLabel" destination="Gzw-aq-Yfi" id="dcl-hj-bbv"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="309" height="28"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gzw-aq-Yfi" customClass="TextField" customModule="MyNextMeeting" customModuleProvider="target">
+                    <rect key="frame" x="18" y="7" width="273" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Title of the event" usesSingleLineMode="YES" id="N3i-t5-4if">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3oV-Vu-gVE">
+                    <rect key="frame" x="7" y="12" width="6" height="6"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="6" id="atT-e3-OH5"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="6" id="ewE-jM-GcS"/>
+                        <constraint firstAttribute="height" constant="6" id="fTf-x6-fyk"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="6" id="r8w-9V-uSO"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="menu" id="hdH-LD-9c8"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Gzw-aq-Yfi" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="R84-Gm-2md"/>
+                <constraint firstItem="Gzw-aq-Yfi" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="5" id="VsI-lx-qaq"/>
+                <constraint firstItem="3oV-Vu-gVE" firstAttribute="centerY" secondItem="Gzw-aq-Yfi" secondAttribute="centerY" id="Ze6-KV-hvV"/>
+                <constraint firstItem="Gzw-aq-Yfi" firstAttribute="leading" secondItem="3oV-Vu-gVE" secondAttribute="trailing" constant="7" id="i16-XW-8Zd"/>
+                <constraint firstAttribute="trailing" secondItem="Gzw-aq-Yfi" secondAttribute="trailing" constant="20" id="x2g-LH-0SJ"/>
+            </constraints>
+            <point key="canvasLocation" x="90.5" y="-26"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="menu" width="64.5" height="64.5"/>
+    </resources>
+</document>

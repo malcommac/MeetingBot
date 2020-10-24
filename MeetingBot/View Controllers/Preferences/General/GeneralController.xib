@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="GeneralController" customModule="MyNextMeeting" customModuleProvider="target">
+            <connections>
+                <outlet property="browsersList" destination="yzL-P7-nbK" id="Iea-GY-d5o"/>
+                <outlet property="browsersListLabel" destination="eCY-a1-pNS" id="fiq-QG-N6M"/>
+                <outlet property="launchAtLogin" destination="L2Z-H0-bD0" id="a2j-iJ-uZq"/>
+                <outlet property="menuBarStyle" destination="gjK-jT-mG7" id="ltJ-Xn-pzt"/>
+                <outlet property="menuBarStyleLabel" destination="Ee0-IX-IWe" id="2La-Xd-XwU"/>
+                <outlet property="notifyEvent" destination="2Ur-Pc-DgZ" id="oHN-0O-o0z"/>
+                <outlet property="notifyEventLabel" destination="TDf-GC-Lpv" id="kwS-vG-jAp"/>
+                <outlet property="notifyEventSublabel" destination="kQS-mZ-CZg" id="wyJ-j2-xPu"/>
+                <outlet property="preferChromeWithMeetService" destination="O8W-p8-cxY" id="MiN-Zu-Cid"/>
+                <outlet property="view" destination="c22-O7-iKe" id="buC-Sz-vlD"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView translatesAutoresizingMaskIntoConstraints="NO" id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="510" height="230"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eCY-a1-pNS">
+                    <rect key="frame" x="18" y="194" width="154" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="va1-YS-v8M"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Default Browser:" id="awS-MD-FVy">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yzL-P7-nbK">
+                    <rect key="frame" x="188" y="189" width="155" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="pKZ-Ow-3bq"/>
+                    </constraints>
+                    <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="lF1-RG-AyT" id="30F-fN-Paq">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="Djq-Wd-fgu">
+                            <items>
+                                <menuItem title="Item 1" state="on" id="lF1-RG-AyT"/>
+                                <menuItem title="Item 2" id="bet-xZ-5eC"/>
+                                <menuItem title="Item 3" id="BKB-Pc-Jnx"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="didChangeBrowser:" target="-2" id="oRP-po-0OC"/>
+                    </connections>
+                </popUpButton>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="O8W-p8-cxY">
+                    <rect key="frame" x="187" y="167" width="195" height="18"/>
+                    <buttonCell key="cell" type="check" title="Prefer Chrome for Meet/Hangout" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="Ah7-3j-Rvd">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="message" size="11"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="didChangePreferChromeWithMeet:" target="-2" id="Nqu-cD-5VR"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TDf-GC-Lpv">
+                    <rect key="frame" x="18" y="118" width="154" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="qoe-O2-dAB"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Notify Call on:" id="5GK-70-Ace">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ee0-IX-IWe">
+                    <rect key="frame" x="18" y="54" width="154" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="gM2-63-7Ym"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Menu Bar:" id="YTu-8I-aKs">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2Ur-Pc-DgZ">
+                    <rect key="frame" x="188" y="112" width="205" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="MBw-i9-iHD"/>
+                    </constraints>
+                    <popUpButtonCell key="cell" type="push" title="Never" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="iqR-IG-5CB" id="UI2-OE-fce">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="ckz-t6-iUu">
+                            <items>
+                                <menuItem title="Never" state="on" id="iqR-IG-5CB"/>
+                                <menuItem title="5 Minutes before" id="ylI-tF-mBc"/>
+                                <menuItem title="At the time of the event" id="Q09-ad-Mtb"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="didChangeNotificationMode:" target="-2" id="scn-vE-diB"/>
+                    </connections>
+                </popUpButton>
+                <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="6m3-Tk-t5h">
+                    <rect key="frame" x="20" y="152" width="470" height="5"/>
+                </box>
+                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="kQS-mZ-CZg">
+                    <rect key="frame" x="188" y="82" width="204" height="28"/>
+                    <textFieldCell key="cell" selectable="YES" title="A system notification will be sent when a new call is approaching." id="p5x-R3-BCn">
+                        <font key="font" metaFont="message" size="11"/>
+                        <color key="textColor" name="systemGrayColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gjK-jT-mG7">
+                    <rect key="frame" x="188" y="48" width="205" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="9wg-GL-mCB"/>
+                    </constraints>
+                    <popUpButtonCell key="cell" type="push" title="Show Icon" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="6dM-NN-pXh" id="TF0-g5-7cA">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="OLO-yT-TgR">
+                            <items>
+                                <menuItem title="Show Icon" state="on" id="6dM-NN-pXh"/>
+                                <menuItem title="Show Abbreviated Title" id="d2Y-me-Ucw"/>
+                                <menuItem title="Show Full Title" id="q45-BV-kCS"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="didChangeMenuBarStyle:" target="-2" id="O4v-Mb-CWM"/>
+                    </connections>
+                </popUpButton>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="L2Z-H0-bD0">
+                    <rect key="frame" x="188" y="15" width="115" height="18"/>
+                    <buttonCell key="cell" type="check" title="Launch at login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="k3B-1n-aGD">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="didChangeLaunchAtLogin:" target="-2" id="tSx-Dm-Hbo"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Ee0-IX-IWe" firstAttribute="leading" secondItem="TDf-GC-Lpv" secondAttribute="leading" id="1D5-k3-p49"/>
+                <constraint firstItem="yzL-P7-nbK" firstAttribute="centerY" secondItem="eCY-a1-pNS" secondAttribute="centerY" id="1jn-MQ-ieb"/>
+                <constraint firstItem="TDf-GC-Lpv" firstAttribute="top" secondItem="6m3-Tk-t5h" secondAttribute="bottom" constant="20" id="2M5-Nh-m6b"/>
+                <constraint firstItem="Ee0-IX-IWe" firstAttribute="trailing" secondItem="TDf-GC-Lpv" secondAttribute="trailing" id="560-CC-Wa2"/>
+                <constraint firstItem="6m3-Tk-t5h" firstAttribute="top" secondItem="O8W-p8-cxY" secondAttribute="bottom" constant="15" id="8Je-pb-Iy3"/>
+                <constraint firstItem="6m3-Tk-t5h" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="9hO-yh-jzi"/>
+                <constraint firstItem="2Ur-Pc-DgZ" firstAttribute="centerY" secondItem="TDf-GC-Lpv" secondAttribute="centerY" id="9pQ-iC-2VX"/>
+                <constraint firstItem="gjK-jT-mG7" firstAttribute="leading" secondItem="2Ur-Pc-DgZ" secondAttribute="leading" id="DOv-Rc-sZ1"/>
+                <constraint firstAttribute="trailing" secondItem="6m3-Tk-t5h" secondAttribute="trailing" constant="20" id="GOF-vz-1CY"/>
+                <constraint firstItem="O8W-p8-cxY" firstAttribute="leading" secondItem="yzL-P7-nbK" secondAttribute="leading" id="Kde-I9-VSE"/>
+                <constraint firstItem="kQS-mZ-CZg" firstAttribute="leading" secondItem="2Ur-Pc-DgZ" secondAttribute="leading" id="MEA-7L-7Hy"/>
+                <constraint firstItem="Ee0-IX-IWe" firstAttribute="top" secondItem="TDf-GC-Lpv" secondAttribute="bottom" constant="48" id="NNV-L1-ERK"/>
+                <constraint firstItem="kQS-mZ-CZg" firstAttribute="top" secondItem="2Ur-Pc-DgZ" secondAttribute="bottom" constant="5" id="O94-sP-haZ"/>
+                <constraint firstItem="L2Z-H0-bD0" firstAttribute="top" secondItem="gjK-jT-mG7" secondAttribute="bottom" constant="20" id="Thz-je-OIt"/>
+                <constraint firstItem="TDf-GC-Lpv" firstAttribute="trailing" secondItem="eCY-a1-pNS" secondAttribute="trailing" id="U0g-Hb-aWz"/>
+                <constraint firstItem="L2Z-H0-bD0" firstAttribute="leading" secondItem="gjK-jT-mG7" secondAttribute="leading" id="VxT-IZ-AMe"/>
+                <constraint firstItem="2Ur-Pc-DgZ" firstAttribute="leading" secondItem="O8W-p8-cxY" secondAttribute="leading" id="Wyx-fa-gXE"/>
+                <constraint firstAttribute="height" constant="230" id="bof-mj-3mU"/>
+                <constraint firstItem="eCY-a1-pNS" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" id="gY6-eL-WF4"/>
+                <constraint firstItem="gjK-jT-mG7" firstAttribute="centerY" secondItem="Ee0-IX-IWe" secondAttribute="centerY" id="l2d-gb-YBF"/>
+                <constraint firstItem="gjK-jT-mG7" firstAttribute="trailing" secondItem="2Ur-Pc-DgZ" secondAttribute="trailing" id="mpV-6S-Wuh"/>
+                <constraint firstAttribute="trailing" secondItem="kQS-mZ-CZg" secondAttribute="trailing" constant="120" id="oio-Zj-GZ2"/>
+                <constraint firstItem="eCY-a1-pNS" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="p2v-GF-HlT"/>
+                <constraint firstAttribute="width" constant="510" id="rH8-S2-pKn"/>
+                <constraint firstItem="yzL-P7-nbK" firstAttribute="leading" secondItem="eCY-a1-pNS" secondAttribute="trailing" constant="20" id="wda-4q-foz"/>
+                <constraint firstItem="O8W-p8-cxY" firstAttribute="top" secondItem="yzL-P7-nbK" secondAttribute="bottom" constant="10" id="xRZ-Di-ENM"/>
+            </constraints>
+            <point key="canvasLocation" x="-3" y="133"/>
+        </customView>
+    </objects>
+</document>
