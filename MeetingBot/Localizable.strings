@@ -54,10 +54,10 @@
 "EventDetail_Attendees" = "Attendees";
 "EventDetail_Location" = "Location";
 
-"App_Tagline" = "Butler for remote meetings";
+"App_Tagline" = "Your butler for remote meetings";
 "App_Version" = "Version %@ - All Rights Reserved © 2020\nCreated by Daniele Margutti";
 "App_URL" = "https://www.danielemargutti.com/meetingbot/";
-"App_Mail" = "mailto://hello@danielemargutti.com";
+"App_Mail" = "mailto:hello@danielemargutti.com";
 
 "SpeedDial_Subtitle" = "You can add a list of shortcut urls to contact people or open new meetings directly from the menu bar.";
 "SpeedDial_Title" = "Speed Dial shortcuts:";

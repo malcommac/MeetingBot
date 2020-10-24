@@ -221,6 +221,18 @@ public enum CallServices: Int, Codable, CaseIterable, Comparable {
         }
     }
     
+    public var icon: NSImage? {
+        switch self {
+        case .zoom: return NSImage(named: "statusbar_zoom")
+        case .meet: return NSImage(named: "statusbar_meet")
+        case .hangouts: return NSImage(named: "statusbar_hangout")
+        case .webex: return NSImage(named: "statusbar_webex")
+        case .teams: return NSImage(named: "statusbar_teams")
+        case .skype, .skype4biz, .skype4bix_hosted: return NSImage(named: "statusbar_skype")
+        default: return nil
+        }
+    }
+    
     public var regularExpression: NSRegularExpression? {
         var regularExpression: String?
         

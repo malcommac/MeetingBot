@@ -301,7 +301,7 @@ public class StatusBarManager: NSObject, NSMenuDelegate {
                 let joinMenuItem = menu.addItem(title: "MenuItem_JoinWithService".l10n([serviceName]),
                                                 action: #selector(joinEventCall),
                                                 target: self)
-                joinMenuItem.image = NSImage(named: "statusbar_zoom")
+                joinMenuItem.image = service.icon
                 joinMenuItem.representedObject = event
                 joinMenuItem.tag = service.rawValue
             }
