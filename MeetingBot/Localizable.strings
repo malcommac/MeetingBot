@@ -75,3 +75,5 @@
 
 "Menu_SpeedDial" = "SPEED DIAL";
 "Menu_NextEvents" = "NEXT EVENTS";
+
+"Menu_NoURL" = "No Meeting URL found in event";

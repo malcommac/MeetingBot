@@ -293,6 +293,7 @@ public class StatusBarManager: NSObject, NSMenuDelegate {
     private func addJoinMenuItems(forEvent event: EKEvent, intoMenu menu: NSMenu) {
         let foundServices = event.meetingLinkServices()
         guard foundServices.isEmpty == false else {
+            menu.addItem(title: "Menu_NoURL".l10n, action: nil, target: nil)
             return
         }
         
