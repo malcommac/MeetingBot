@@ -183,7 +183,7 @@ public class StatusBarManager: NSObject, NSMenuDelegate {
         let sectionTitleMenuItem = NSMenuItem(title: "SPEED_DIAL", action: nil, keyEquivalent: "")
         sectionTitleMenuItem.attributedTitle = NSAttributedString(string: "Menu_SpeedDial".l10n,attributes: attributes)
         statusBarMenu.addItem(sectionTitleMenuItem)
-        
+         
         // Speed Items
         for speedDialItem in items {
             let speedDialMenuItem = statusBarMenu.addItem(title: speedDialItem.title, action: #selector(launchSpeedDialURL), target: self)
