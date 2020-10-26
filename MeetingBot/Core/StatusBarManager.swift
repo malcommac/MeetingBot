@@ -197,7 +197,7 @@ public class StatusBarManager: NSObject, NSMenuDelegate {
 
         let newMeeting = statusBarMenu.addItem(title: "MenuItem_New_Meeting".l10n, action: nil, target: self)
         let newServiceMenu = NSMenu(title: "")
-        for callService in CallServices.allCases.filter({ $0.name != nil }) {
+        for callService in CallServices.allCases.filter({ $0.newCallURL != nil }) {
             let serviceMenuItem = newServiceMenu.addItem(withTitle: callService.name!, action: #selector(createNewMeeting), keyEquivalent: "")
             serviceMenuItem.target = self
             serviceMenuItem.representedObject = callService
