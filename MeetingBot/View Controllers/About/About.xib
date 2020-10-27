@@ -20,7 +20,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="471" height="182"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="3008" height="1669"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="3360" height="1867"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="471" height="182"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -49,18 +49,8 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1QZ-u1-fW0">
-                        <rect key="frame" x="387" y="14" width="69" height="27"/>
-                        <buttonCell key="cell" type="push" title="Website" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uD3-U8-lTV">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="smallSystem"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="website:" target="-2" id="3lR-QX-3eU"/>
-                        </connections>
-                    </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="r90-R3-gZr">
-                        <rect key="frame" x="270" y="14" width="107" height="27"/>
+                        <rect key="frame" x="349" y="14" width="107" height="27"/>
                         <buttonCell key="cell" type="push" title="Send Feedback" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xzM-C3-L5b">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
@@ -82,17 +72,15 @@ Created by Daniele Margutti</string>
                 </subviews>
                 <constraints>
                     <constraint firstItem="hq6-jz-jes" firstAttribute="top" secondItem="g2J-QJ-7oX" secondAttribute="bottom" constant="5" id="1Al-do-h9K"/>
-                    <constraint firstItem="r90-R3-gZr" firstAttribute="centerY" secondItem="1QZ-u1-fW0" secondAttribute="centerY" id="Fc8-Wd-oej"/>
+                    <constraint firstAttribute="trailing" secondItem="r90-R3-gZr" secondAttribute="trailing" constant="20" id="9tM-Zr-SeS"/>
+                    <constraint firstAttribute="bottom" secondItem="r90-R3-gZr" secondAttribute="bottom" constant="20" id="Nwr-41-kBn"/>
                     <constraint firstItem="CSX-GG-qYG" firstAttribute="top" secondItem="hq6-jz-jes" secondAttribute="bottom" constant="10" id="YnT-zT-t5l"/>
                     <constraint firstItem="g2J-QJ-7oX" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="dZ3-lg-uam"/>
-                    <constraint firstItem="1QZ-u1-fW0" firstAttribute="leading" secondItem="r90-R3-gZr" secondAttribute="trailing" constant="20" id="jk4-DG-9xA"/>
-                    <constraint firstAttribute="bottom" secondItem="1QZ-u1-fW0" secondAttribute="bottom" constant="20" id="nP3-7z-cF3"/>
                     <constraint firstItem="Ggg-U5-Ri6" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="pQU-ue-44e"/>
                     <constraint firstItem="g2J-QJ-7oX" firstAttribute="leading" secondItem="Ggg-U5-Ri6" secondAttribute="trailing" constant="20" id="sQv-u0-V6R"/>
                     <constraint firstItem="hq6-jz-jes" firstAttribute="leading" secondItem="g2J-QJ-7oX" secondAttribute="leading" id="sUg-Ub-urJ"/>
                     <constraint firstItem="CSX-GG-qYG" firstAttribute="leading" secondItem="hq6-jz-jes" secondAttribute="leading" id="t74-O4-NGJ"/>
                     <constraint firstItem="Ggg-U5-Ri6" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="vUv-kE-y9v"/>
-                    <constraint firstAttribute="trailing" secondItem="1QZ-u1-fW0" secondAttribute="trailing" constant="20" id="zrp-kw-I7A"/>
                 </constraints>
             </view>
             <point key="canvasLocation" x="61.5" y="69"/>
