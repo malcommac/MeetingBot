@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="AboutWindowController" customModule="MeetingBot" customModuleProvider="target">
+            <connections>
+                <outlet property="appTaglineLabel" destination="hq6-jz-jes" id="vxL-on-5Z1"/>
+                <outlet property="appTitleLabel" destination="g2J-QJ-7oX" id="gnF-Tp-B1h"/>
+                <outlet property="appVersionLabel" destination="CSX-GG-qYG" id="rae-Im-eGT"/>
+                <outlet property="window" destination="QvC-M9-y7g" id="D1F-qo-Po8"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="About" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" id="QvC-M9-y7g">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="471" height="182"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="3360" height="1867"/>
+            <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="471" height="182"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ggg-U5-Ri6">
+                        <rect key="frame" x="20" y="62" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="jwc-q5-cw0"/>
+                            <constraint firstAttribute="height" constant="100" id="m4z-pQ-9fn"/>
+                        </constraints>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="appicon" id="iaS-EA-Kpg"/>
+                    </imageView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g2J-QJ-7oX">
+                        <rect key="frame" x="138" y="141" width="105" height="21"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="MeetingBot" id="buC-Ao-Kah">
+                            <font key="font" metaFont="systemBold" size="18"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hq6-jz-jes">
+                        <rect key="frame" x="138" y="120" width="252" height="16"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Your next meeting into macOS status bar" id="rI2-Xd-uF8">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="r90-R3-gZr">
+                        <rect key="frame" x="349" y="14" width="107" height="27"/>
+                        <buttonCell key="cell" type="push" title="Send Feedback" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xzM-C3-L5b">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="smallSystem"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="support:" target="-2" id="AYB-ET-ggs"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CSX-GG-qYG">
+                        <rect key="frame" x="138" y="82" width="227" height="28"/>
+                        <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" id="foy-XM-Vwa">
+                            <font key="font" metaFont="message" size="11"/>
+                            <string key="title">Version 1.0.0 - All Rights Reserved © 2020
+Created by Daniele Margutti</string>
+                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="hq6-jz-jes" firstAttribute="top" secondItem="g2J-QJ-7oX" secondAttribute="bottom" constant="5" id="1Al-do-h9K"/>
+                    <constraint firstAttribute="trailing" secondItem="r90-R3-gZr" secondAttribute="trailing" constant="20" id="9tM-Zr-SeS"/>
+                    <constraint firstAttribute="bottom" secondItem="r90-R3-gZr" secondAttribute="bottom" constant="20" id="Nwr-41-kBn"/>
+                    <constraint firstItem="CSX-GG-qYG" firstAttribute="top" secondItem="hq6-jz-jes" secondAttribute="bottom" constant="10" id="YnT-zT-t5l"/>
+                    <constraint firstItem="g2J-QJ-7oX" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="dZ3-lg-uam"/>
+                    <constraint firstItem="Ggg-U5-Ri6" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="pQU-ue-44e"/>
+                    <constraint firstItem="g2J-QJ-7oX" firstAttribute="leading" secondItem="Ggg-U5-Ri6" secondAttribute="trailing" constant="20" id="sQv-u0-V6R"/>
+                    <constraint firstItem="hq6-jz-jes" firstAttribute="leading" secondItem="g2J-QJ-7oX" secondAttribute="leading" id="sUg-Ub-urJ"/>
+                    <constraint firstItem="CSX-GG-qYG" firstAttribute="leading" secondItem="hq6-jz-jes" secondAttribute="leading" id="t74-O4-NGJ"/>
+                    <constraint firstItem="Ggg-U5-Ri6" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="vUv-kE-y9v"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="61.5" y="69"/>
+        </window>
+    </objects>
+    <resources>
+        <image name="appicon" width="411.5" height="412.5"/>
+    </resources>
+</document>

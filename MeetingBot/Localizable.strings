@@ -1,0 +1,79 @@
+"Join_Call" = "Join";
+
+"MenuItem_Configure_Calendars" = "Set Calendars in Preferences...";
+"MenuItem_New_Meeting" = "New Meeting...";
+"MenuItem_About" = "About";
+"MenuItem_Preferences" = "Preferences...";
+"MenuItem_Quit" = "Quit";
+"MenuItem_NoEvents" = "No Events";
+"MenuItem_JoinWithService" = "Join with %@...";
+
+"Event_Time_AllDay" = "All Day";
+"Event_Time_InProgress" = "In Progress";
+"Event_Time_Now" = "Now";
+"Event_Time_InMinutes" = "In Minutes";
+"Event_Time_InMinutesLong" = "In %@ minutes";
+"Event_Time_StartEnd" = "%@-%@";
+"Event_Time_Ended" = "Ended";
+
+"Section_Next" = "NEXT MEETING";
+"Section_Now" = "NOW";
+
+"Detail_NoNotes" = "No Notes Set";
+
+"Notification_CallIsStarting" = "Meeting is starting soon!";
+"Notification_Button_Join" = "Join";
+
+"Error_FailedAuthCalendar" = "Failed to read calendar";
+
+"Preferences_Notify_Never" = "Never";
+"Preferences_Notify_5mBefore" = "5 minutes before";
+"Preferences_Notify_AtEvent" = "At the time of the event";
+
+"Preferences_Default_Browser" = "Default Browser";
+"Preferences_PreferChrome" = "Prefer Chrome for Meet/Hangout";
+"Preferences_NotifyEvent" = "Notify Call on:";
+"Preferences_NotifyEvent_Desc" = "A system notification will be sent when a new call is approaching.";
+"Preferences_MenuBar" = "Menu Bar";
+"Preferences_LaunchLogin" = "Launch at login";
+"Preferences_SelectCalendarsTitle" = "Calendars to watch:";
+"Preferences_SelectCalendarsDesc" = "Events with call links will be available though the menu bar. Calendars must be part of the system calendars.";
+"Preferences_EventsMatch" = "Events to match:";
+
+"Attendees_None" = "None";
+"Attendees_Count" = "%d Attendees";
+"Attendees_CountAccepted" = "%d Attendees (%d accepted)";
+"Attendee_NoName" = "(No Name)";
+"Attendee_You" = "%@ (YOU)";
+"Attendee_Status_Tentative" = "[tentative]";
+"Attendee_Status_NoResponded" = "[not responded]";
+"Attendee_Format" = "- %@ %@ %@";
+
+"EventDetail_Time" = "Time";
+"EventDetail_Calendar" = "Calendar";
+"EventDetail_Attendees" = "Attendees";
+"EventDetail_Location" = "Location";
+
+"App_Tagline" = "Your butler for remote meetings";
+"App_Version" = "Version %@ - All Rights Reserved © 2020\nCreated by Daniele Margutti";
+"App_URL" = "https://www.danielemargutti.com/meetingbot/";
+"App_Mail" = "mailto:hello@danielemargutti.com";
+
+"SpeedDial_Subtitle" = "You can add a list of shortcut urls to contact people or open new meetings directly from the menu bar.";
+"SpeedDial_Title" = "Speed Dial shortcuts:";
+"Button_Add" = "Add";
+"Button_Remove" = "Remove";
+
+"In_Time" = "In %@";
+"Ago_Time" = "%@ ago";
+"Now" = "now";
+
+"MenuBarStyle_Icon" = "Icon";
+"MenuBarStyle_IconAndCountdown" = "Icon + Countdown (when icoming event)";
+"MenuBarStyle_NextTitle" = "Next Event Title";
+"MenuBarStyle_NextTitleAbbreviated" = "Next Abbreviated Event Title";
+
+"Menu_SpeedDial" = "SPEED DIAL";
+"Menu_NextEvents" = "NEXT EVENTS";
+
+"Menu_NoURL" = "No Meeting URL found in event";

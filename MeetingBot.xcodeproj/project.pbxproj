@@ -1,0 +1,665 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		640F714D24FD193600195D9F /* WizardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F714C24FD193600195D9F /* WizardController.swift */; };
+		640F715124FD498E00195D9F /* Wizard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 640F715024FD498E00195D9F /* Wizard.xib */; };
+		6410C17E251889EE00CF7EF9 /* EKParticipant+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410C17D251889EE00CF7EF9 /* EKParticipant+Extensions.swift */; };
+		6410C18625188E4200CF7EF9 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 6410C18525188E4200CF7EF9 /* LaunchAtLogin */; };
+		641423CD24F570E600F62276 /* MenuItemViewEventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641423CC24F570E600F62276 /* MenuItemViewEventDetail.swift */; };
+		641423CF24F570EB00F62276 /* MenuItemViewEventDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641423CE24F570EB00F62276 /* MenuItemViewEventDetail.xib */; };
+		641423D324F68EC500F62276 /* MenuItemViewNextCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641423D224F68EC500F62276 /* MenuItemViewNextCall.swift */; };
+		641423D524F68ED100F62276 /* MenuItemViewNextCall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641423D424F68ED100F62276 /* MenuItemViewNextCall.xib */; };
+		641423DE24F7E77100F62276 /* About.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641423DD24F7E77100F62276 /* About.xib */; };
+		641423E124F7EB8100F62276 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641423E024F7EB8100F62276 /* AboutWindowController.swift */; };
+		641FD8F324F44BFA0086C27E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641FD8F224F44BFA0086C27E /* AppDelegate.swift */; };
+		641FD8F724F44BFB0086C27E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 641FD8F624F44BFB0086C27E /* Assets.xcassets */; };
+		641FD8FA24F44BFC0086C27E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 641FD8F824F44BFC0086C27E /* Main.storyboard */; };
+		641FD90824F44F6A0086C27E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 641FD90724F44F6A0086C27E /* Localizable.strings */; };
+		641FD90E24F454030086C27E /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641FD90D24F454030086C27E /* CalendarManager.swift */; };
+		641FD91724F4F8710086C27E /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641FD91624F4F8710086C27E /* CalendarController.swift */; };
+		641FD91B24F4FAE70086C27E /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 641FD91A24F4FAE70086C27E /* Preferences */; };
+		641FD91D24F4FC030086C27E /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641FD91C24F4FC030086C27E /* Preferences.swift */; };
+		641FD92424F4FC9E0086C27E /* CalendarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641FD92324F4FC9E0086C27E /* CalendarController.xib */; };
+		641FD92624F4FCC90086C27E /* GeneralController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641FD92524F4FCC90086C27E /* GeneralController.xib */; };
+		641FD92924F4FCDD0086C27E /* GeneralController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641FD92824F4FCDD0086C27E /* GeneralController.swift */; };
+		643CF8332503BD9B00577ADD /* CalendarTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643CF8322503BD9B00577ADD /* CalendarTableView.swift */; };
+		644C7F1F24FC07ED00FD330E /* EKEvent+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644C7F1E24FC07ED00FD330E /* EKEvent+Extension.swift */; };
+		645EB8DD24F513C8005B2B76 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 645EB8DC24F513C8005B2B76 /* Defaults */; };
+		645EB8DF24F5160A005B2B76 /* CalendarController+Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645EB8DE24F5160A005B2B76 /* CalendarController+Cells.swift */; };
+		645EB8E124F518E5005B2B76 /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645EB8E024F518E5005B2B76 /* PreferencesManager.swift */; };
+		645EB8E624F53D51005B2B76 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645EB8E524F53D51005B2B76 /* String+Extensions.swift */; };
+		645EB8E824F54961005B2B76 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645EB8E724F54961005B2B76 /* NotificationManager.swift */; };
+		645EB8EA24F54B78005B2B76 /* StatusBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645EB8E924F54B78005B2B76 /* StatusBarManager.swift */; };
+		645EB8EE24F55723005B2B76 /* MenuItemViewEventSummary.xib in Resources */ = {isa = PBXBuildFile; fileRef = 645EB8ED24F55723005B2B76 /* MenuItemViewEventSummary.xib */; };
+		645EB8F024F5573E005B2B76 /* MenuItemViewEventSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645EB8EF24F5573E005B2B76 /* MenuItemViewEventSummary.swift */; };
+		645EB8F324F55786005B2B76 /* LoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645EB8F224F55786005B2B76 /* LoadableView.swift */; };
+		649CF44625445B600066DF2B /* SpeedDialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649CF44525445B600066DF2B /* SpeedDialController.swift */; };
+		649CF44B25445BB90066DF2B /* SpeedDialController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649CF44A25445BB90066DF2B /* SpeedDialController.xib */; };
+		64C4EE3324FC0EF600CDA1AD /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4EE3224FC0EF600CDA1AD /* Date+Extensions.swift */; };
+		64C4EE3524FC0F3E00CDA1AD /* NSMenu+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4EE3424FC0F3E00CDA1AD /* NSMenu+Extensions.swift */; };
+		64C4EE3724FC0F5100CDA1AD /* NSWorkspace+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4EE3624FC0F5100CDA1AD /* NSWorkspace+Extensions.swift */; };
+		64C4EE3924FC0F6500CDA1AD /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4EE3824FC0F6500CDA1AD /* URL+Extensions.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		640F714C24FD193600195D9F /* WizardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardController.swift; sourceTree = "<group>"; };
+		640F715024FD498E00195D9F /* Wizard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Wizard.xib; sourceTree = "<group>"; };
+		6410C17D251889EE00CF7EF9 /* EKParticipant+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKParticipant+Extensions.swift"; sourceTree = "<group>"; };
+		641423CC24F570E600F62276 /* MenuItemViewEventDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemViewEventDetail.swift; sourceTree = "<group>"; };
+		641423CE24F570EB00F62276 /* MenuItemViewEventDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItemViewEventDetail.xib; sourceTree = "<group>"; };
+		641423D224F68EC500F62276 /* MenuItemViewNextCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemViewNextCall.swift; sourceTree = "<group>"; };
+		641423D424F68ED100F62276 /* MenuItemViewNextCall.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItemViewNextCall.xib; sourceTree = "<group>"; };
+		641423DD24F7E77100F62276 /* About.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = About.xib; sourceTree = "<group>"; };
+		641423E024F7EB8100F62276 /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
+		641FD8EF24F44BFA0086C27E /* MeetingBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		641FD8F224F44BFA0086C27E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		641FD8F624F44BFB0086C27E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		641FD8F924F44BFC0086C27E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		641FD8FB24F44BFC0086C27E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		641FD8FC24F44BFC0086C27E /* MeetingBot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MeetingBot.entitlements; sourceTree = "<group>"; };
+		641FD90724F44F6A0086C27E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		641FD90D24F454030086C27E /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
+		641FD91624F4F8710086C27E /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
+		641FD91C24F4FC030086C27E /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		641FD92324F4FC9E0086C27E /* CalendarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarController.xib; sourceTree = "<group>"; };
+		641FD92524F4FCC90086C27E /* GeneralController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralController.xib; sourceTree = "<group>"; };
+		641FD92824F4FCDD0086C27E /* GeneralController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralController.swift; sourceTree = "<group>"; };
+		643CF8322503BD9B00577ADD /* CalendarTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableView.swift; sourceTree = "<group>"; };
+		644C7F1E24FC07ED00FD330E /* EKEvent+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEvent+Extension.swift"; sourceTree = "<group>"; };
+		645EB8DE24F5160A005B2B76 /* CalendarController+Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarController+Cells.swift"; sourceTree = "<group>"; };
+		645EB8E024F518E5005B2B76 /* PreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
+		645EB8E524F53D51005B2B76 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		645EB8E724F54961005B2B76 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		645EB8E924F54B78005B2B76 /* StatusBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarManager.swift; sourceTree = "<group>"; };
+		645EB8ED24F55723005B2B76 /* MenuItemViewEventSummary.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItemViewEventSummary.xib; sourceTree = "<group>"; };
+		645EB8EF24F5573E005B2B76 /* MenuItemViewEventSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemViewEventSummary.swift; sourceTree = "<group>"; };
+		645EB8F224F55786005B2B76 /* LoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableView.swift; sourceTree = "<group>"; };
+		649CF44525445B600066DF2B /* SpeedDialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedDialController.swift; sourceTree = "<group>"; };
+		649CF44A25445BB90066DF2B /* SpeedDialController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedDialController.xib; sourceTree = "<group>"; };
+		64C4EE3224FC0EF600CDA1AD /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		64C4EE3424FC0F3E00CDA1AD /* NSMenu+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMenu+Extensions.swift"; sourceTree = "<group>"; };
+		64C4EE3624FC0F5100CDA1AD /* NSWorkspace+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWorkspace+Extensions.swift"; sourceTree = "<group>"; };
+		64C4EE3824FC0F6500CDA1AD /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		641FD8EC24F44BFA0086C27E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6410C18625188E4200CF7EF9 /* LaunchAtLogin in Frameworks */,
+				645EB8DD24F513C8005B2B76 /* Defaults in Frameworks */,
+				641FD91B24F4FAE70086C27E /* Preferences in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		640F714724FD187D00195D9F /* Wizard */ = {
+			isa = PBXGroup;
+			children = (
+				640F715024FD498E00195D9F /* Wizard.xib */,
+				640F714C24FD193600195D9F /* WizardController.swift */,
+			);
+			path = Wizard;
+			sourceTree = "<group>";
+		};
+		641423CB24F570D800F62276 /* EventDetail */ = {
+			isa = PBXGroup;
+			children = (
+				641423CE24F570EB00F62276 /* MenuItemViewEventDetail.xib */,
+				641423CC24F570E600F62276 /* MenuItemViewEventDetail.swift */,
+			);
+			path = EventDetail;
+			sourceTree = "<group>";
+		};
+		641423D624F68F9000F62276 /* NextCall */ = {
+			isa = PBXGroup;
+			children = (
+				641423D424F68ED100F62276 /* MenuItemViewNextCall.xib */,
+				641423D224F68EC500F62276 /* MenuItemViewNextCall.swift */,
+			);
+			path = NextCall;
+			sourceTree = "<group>";
+		};
+		641423DF24F7E98400F62276 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				641423DD24F7E77100F62276 /* About.xib */,
+				641423E024F7EB8100F62276 /* AboutWindowController.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		641FD8E624F44BFA0086C27E = {
+			isa = PBXGroup;
+			children = (
+				641FD8F124F44BFA0086C27E /* MeetingBot */,
+				641FD8F024F44BFA0086C27E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		641FD8F024F44BFA0086C27E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				641FD8EF24F44BFA0086C27E /* MeetingBot.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		641FD8F124F44BFA0086C27E /* MeetingBot */ = {
+			isa = PBXGroup;
+			children = (
+				641FD8F224F44BFA0086C27E /* AppDelegate.swift */,
+				641FD8F824F44BFC0086C27E /* Main.storyboard */,
+				641FD90C24F453F30086C27E /* Core */,
+				645EB8F124F5577B005B2B76 /* Extras */,
+				645EB8EB24F5570E005B2B76 /* View Controllers */,
+				641FD8F624F44BFB0086C27E /* Assets.xcassets */,
+				641FD8FB24F44BFC0086C27E /* Info.plist */,
+				641FD8FC24F44BFC0086C27E /* MeetingBot.entitlements */,
+				641FD90724F44F6A0086C27E /* Localizable.strings */,
+			);
+			path = MeetingBot;
+			sourceTree = "<group>";
+		};
+		641FD90C24F453F30086C27E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				645EB8E924F54B78005B2B76 /* StatusBarManager.swift */,
+				641FD90D24F454030086C27E /* CalendarManager.swift */,
+				645EB8E724F54961005B2B76 /* NotificationManager.swift */,
+				645EB8E024F518E5005B2B76 /* PreferencesManager.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		641FD91824F4F9580086C27E /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				641FD91C24F4FC030086C27E /* Preferences.swift */,
+				649CF44125445B3C0066DF2B /* Speed Dial */,
+				641FD92724F4FCD50086C27E /* General */,
+				641FD91E24F4FC160086C27E /* Calendar */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		641FD91E24F4FC160086C27E /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				641FD92324F4FC9E0086C27E /* CalendarController.xib */,
+				641FD91624F4F8710086C27E /* CalendarController.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		641FD92724F4FCD50086C27E /* General */ = {
+			isa = PBXGroup;
+			children = (
+				641FD92524F4FCC90086C27E /* GeneralController.xib */,
+				641FD92824F4FCDD0086C27E /* GeneralController.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		643CF8342503BFE100577ADD /* CalendarTableView */ = {
+			isa = PBXGroup;
+			children = (
+				643CF8322503BD9B00577ADD /* CalendarTableView.swift */,
+				645EB8DE24F5160A005B2B76 /* CalendarController+Cells.swift */,
+			);
+			path = CalendarTableView;
+			sourceTree = "<group>";
+		};
+		645EB8EB24F5570E005B2B76 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				64C4EE3A24FC0FC800CDA1AD /* Menu Items */,
+				641FD91824F4F9580086C27E /* Preferences */,
+				640F714724FD187D00195D9F /* Wizard */,
+				641423DF24F7E98400F62276 /* About */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		645EB8EC24F55716005B2B76 /* EventSummary */ = {
+			isa = PBXGroup;
+			children = (
+				645EB8ED24F55723005B2B76 /* MenuItemViewEventSummary.xib */,
+				645EB8EF24F5573E005B2B76 /* MenuItemViewEventSummary.swift */,
+			);
+			path = EventSummary;
+			sourceTree = "<group>";
+		};
+		645EB8F124F5577B005B2B76 /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				645EB8F224F55786005B2B76 /* LoadableView.swift */,
+				643CF8342503BFE100577ADD /* CalendarTableView */,
+				64C4EE3124FC0EE100CDA1AD /* Cocoa+Extensions */,
+			);
+			path = Extras;
+			sourceTree = "<group>";
+		};
+		649CF44125445B3C0066DF2B /* Speed Dial */ = {
+			isa = PBXGroup;
+			children = (
+				649CF44A25445BB90066DF2B /* SpeedDialController.xib */,
+				649CF44525445B600066DF2B /* SpeedDialController.swift */,
+			);
+			path = "Speed Dial";
+			sourceTree = "<group>";
+		};
+		64C4EE3124FC0EE100CDA1AD /* Cocoa+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				645EB8E524F53D51005B2B76 /* String+Extensions.swift */,
+				64C4EE3224FC0EF600CDA1AD /* Date+Extensions.swift */,
+				64C4EE3424FC0F3E00CDA1AD /* NSMenu+Extensions.swift */,
+				64C4EE3624FC0F5100CDA1AD /* NSWorkspace+Extensions.swift */,
+				64C4EE3824FC0F6500CDA1AD /* URL+Extensions.swift */,
+				644C7F1E24FC07ED00FD330E /* EKEvent+Extension.swift */,
+				6410C17D251889EE00CF7EF9 /* EKParticipant+Extensions.swift */,
+			);
+			path = "Cocoa+Extensions";
+			sourceTree = "<group>";
+		};
+		64C4EE3A24FC0FC800CDA1AD /* Menu Items */ = {
+			isa = PBXGroup;
+			children = (
+				645EB8EC24F55716005B2B76 /* EventSummary */,
+				641423D624F68F9000F62276 /* NextCall */,
+				641423CB24F570D800F62276 /* EventDetail */,
+			);
+			path = "Menu Items";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		641FD8EE24F44BFA0086C27E /* MeetingBot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 641FD8FF24F44BFC0086C27E /* Build configuration list for PBXNativeTarget "MeetingBot" */;
+			buildPhases = (
+				641FD8EB24F44BFA0086C27E /* Sources */,
+				641FD8EC24F44BFA0086C27E /* Frameworks */,
+				641FD8ED24F44BFA0086C27E /* Resources */,
+				64D737262518C8DF00B0AB3A /* Assign Version */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MeetingBot;
+			packageProductDependencies = (
+				641FD91A24F4FAE70086C27E /* Preferences */,
+				645EB8DC24F513C8005B2B76 /* Defaults */,
+				6410C18525188E4200CF7EF9 /* LaunchAtLogin */,
+			);
+			productName = NextCall;
+			productReference = 641FD8EF24F44BFA0086C27E /* MeetingBot.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		641FD8E724F44BFA0086C27E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1200;
+				ORGANIZATIONNAME = com.spillover.nextcall;
+				TargetAttributes = {
+					641FD8EE24F44BFA0086C27E = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = 641FD8EA24F44BFA0086C27E /* Build configuration list for PBXProject "MeetingBot" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 641FD8E624F44BFA0086C27E;
+			packageReferences = (
+				641FD91924F4FAE70086C27E /* XCRemoteSwiftPackageReference "Preferences" */,
+				645EB8DB24F513C8005B2B76 /* XCRemoteSwiftPackageReference "Defaults" */,
+				6410C18425188E4200CF7EF9 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
+			);
+			productRefGroup = 641FD8F024F44BFA0086C27E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				641FD8EE24F44BFA0086C27E /* MeetingBot */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		641FD8ED24F44BFA0086C27E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				649CF44B25445BB90066DF2B /* SpeedDialController.xib in Resources */,
+				641FD92424F4FC9E0086C27E /* CalendarController.xib in Resources */,
+				641423D524F68ED100F62276 /* MenuItemViewNextCall.xib in Resources */,
+				641FD8F724F44BFB0086C27E /* Assets.xcassets in Resources */,
+				640F715124FD498E00195D9F /* Wizard.xib in Resources */,
+				641423DE24F7E77100F62276 /* About.xib in Resources */,
+				645EB8EE24F55723005B2B76 /* MenuItemViewEventSummary.xib in Resources */,
+				641423CF24F570EB00F62276 /* MenuItemViewEventDetail.xib in Resources */,
+				641FD90824F44F6A0086C27E /* Localizable.strings in Resources */,
+				641FD92624F4FCC90086C27E /* GeneralController.xib in Resources */,
+				641FD8FA24F44BFC0086C27E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		64D737262518C8DF00B0AB3A /* Assign Version */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Assign Version";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd $PROJECT_DIR\nbuildNo=`git rev-list HEAD | wc -l | tr -d ' '`\n\necho \"⚙️ Compiling Build Version ${buildNo}...\"\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNo\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		641FD8EB24F44BFA0086C27E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6410C17E251889EE00CF7EF9 /* EKParticipant+Extensions.swift in Sources */,
+				645EB8E124F518E5005B2B76 /* PreferencesManager.swift in Sources */,
+				643CF8332503BD9B00577ADD /* CalendarTableView.swift in Sources */,
+				640F714D24FD193600195D9F /* WizardController.swift in Sources */,
+				641423E124F7EB8100F62276 /* AboutWindowController.swift in Sources */,
+				641FD92924F4FCDD0086C27E /* GeneralController.swift in Sources */,
+				64C4EE3724FC0F5100CDA1AD /* NSWorkspace+Extensions.swift in Sources */,
+				64C4EE3524FC0F3E00CDA1AD /* NSMenu+Extensions.swift in Sources */,
+				645EB8E824F54961005B2B76 /* NotificationManager.swift in Sources */,
+				641FD91724F4F8710086C27E /* CalendarController.swift in Sources */,
+				641FD90E24F454030086C27E /* CalendarManager.swift in Sources */,
+				641423CD24F570E600F62276 /* MenuItemViewEventDetail.swift in Sources */,
+				641FD91D24F4FC030086C27E /* Preferences.swift in Sources */,
+				649CF44625445B600066DF2B /* SpeedDialController.swift in Sources */,
+				64C4EE3924FC0F6500CDA1AD /* URL+Extensions.swift in Sources */,
+				645EB8DF24F5160A005B2B76 /* CalendarController+Cells.swift in Sources */,
+				644C7F1F24FC07ED00FD330E /* EKEvent+Extension.swift in Sources */,
+				645EB8EA24F54B78005B2B76 /* StatusBarManager.swift in Sources */,
+				645EB8F324F55786005B2B76 /* LoadableView.swift in Sources */,
+				645EB8F024F5573E005B2B76 /* MenuItemViewEventSummary.swift in Sources */,
+				641FD8F324F44BFA0086C27E /* AppDelegate.swift in Sources */,
+				641423D324F68EC500F62276 /* MenuItemViewNextCall.swift in Sources */,
+				64C4EE3324FC0EF600CDA1AD /* Date+Extensions.swift in Sources */,
+				645EB8E624F53D51005B2B76 /* String+Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		641FD8F824F44BFC0086C27E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				641FD8F924F44BFC0086C27E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		641FD8FD24F44BFC0086C27E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		641FD8FE24F44BFC0086C27E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		641FD90024F44BFC0086C27E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MeetingBot/MeetingBot.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = E5DU3FA699;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = MeetingBot/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danielemargutti.meetingbot;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		641FD90124F44BFC0086C27E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MeetingBot/MeetingBot.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = E5DU3FA699;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = MeetingBot/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danielemargutti.meetingbot;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		641FD8EA24F44BFA0086C27E /* Build configuration list for PBXProject "MeetingBot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				641FD8FD24F44BFC0086C27E /* Debug */,
+				641FD8FE24F44BFC0086C27E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		641FD8FF24F44BFC0086C27E /* Build configuration list for PBXNativeTarget "MeetingBot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				641FD90024F44BFC0086C27E /* Debug */,
+				641FD90124F44BFC0086C27E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6410C18425188E4200CF7EF9 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		641FD91924F4FAE70086C27E /* XCRemoteSwiftPackageReference "Preferences" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Preferences";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.1;
+			};
+		};
+		645EB8DB24F513C8005B2B76 /* XCRemoteSwiftPackageReference "Defaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Defaults.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6410C18525188E4200CF7EF9 /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6410C18425188E4200CF7EF9 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			productName = LaunchAtLogin;
+		};
+		641FD91A24F4FAE70086C27E /* Preferences */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 641FD91924F4FAE70086C27E /* XCRemoteSwiftPackageReference "Preferences" */;
+			productName = Preferences;
+		};
+		645EB8DC24F513C8005B2B76 /* Defaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 645EB8DB24F513C8005B2B76 /* XCRemoteSwiftPackageReference "Defaults" */;
+			productName = Defaults;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 641FD8E724F44BFA0086C27E /* Project object */;
+}
